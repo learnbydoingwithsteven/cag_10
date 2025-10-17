@@ -1,0 +1,351 @@
+version: '3.8'
+
+services:
+  # Ollama Service
+  ollama:
+    image: ollama/ollama:latest
+    container_name: cag_ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    environment:
+      - OLLAMA_HOST=0.0.0.0
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:11434/api/tags"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - cag_network
+
+  # ChromaDB Service
+  chromadb:
+    image: chromadb/chroma:latest
+    container_name: cag_chromadb
+    ports:
+      - "8000:8000"
+    volumes:
+      - chroma_data:/chroma/chroma
+    environment:
+      - IS_PERSISTENT=TRUE
+      - ANONYMIZED_TELEMETRY=FALSE
+    networks:
+      - cag_network
+
+  # Redis Service
+  redis:
+    image: redis:7-alpine
+    container_name: cag_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes
+    networks:
+      - cag_network
+
+  # PostgreSQL Service
+  postgres:
+    image: postgres:15-alpine
+    container_name: cag_postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=cag_user
+      - POSTGRES_PASSWORD=cag_password
+      - POSTGRES_DB=cag_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - cag_network
+
+  # MongoDB Service
+  mongodb:
+    image: mongo:7
+    container_name: cag_mongodb
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=cag_user
+      - MONGO_INITDB_ROOT_PASSWORD=cag_password
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - cag_network
+
+  # Neo4j Service
+  neo4j:
+    image: neo4j:5
+    container_name: cag_neo4j
+    ports:
+      - "7474:7474"  # HTTP
+      - "7687:7687"  # Bolt
+    environment:
+      - NEO4J_AUTH=neo4j/cag_password
+      - NEO4J_PLUGINS=["apoc"]
+    volumes:
+      - neo4j_data:/data
+    networks:
+      - cag_network
+
+  # Elasticsearch Service
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.11.0
+    container_name: cag_elasticsearch
+    ports:
+      - "9200:9200"
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    volumes:
+      - elasticsearch_data:/usr/share/elasticsearch/data
+    networks:
+      - cag_network
+
+  # App 1: Legal Document Analyzer
+  app_legal_analyzer:
+    build:
+      context: ./app_01_legal_analyzer/backend
+      dockerfile: Dockerfile
+    container_name: cag_legal_analyzer
+    ports:
+      - "8001:8001"
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+      - CHROMA_HOST=http://chromadb:8000
+    depends_on:
+      - ollama
+      - chromadb
+    volumes:
+      - ./app_01_legal_analyzer/backend:/app
+    networks:
+      - cag_network
+
+  # App 2: Medical Diagnosis Assistant
+  app_medical_assistant:
+    build:
+      context: ./app_02_medical_assistant/backend
+      dockerfile: Dockerfile
+    container_name: cag_medical_assistant
+    ports:
+      - "8002:8002"
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+      - NEO4J_URI=bolt://neo4j:7687
+      - NEO4J_USER=neo4j
+      - NEO4J_PASSWORD=cag_password
+    depends_on:
+      - ollama
+      - neo4j
+    volumes:
+      - ./app_02_medical_assistant/backend:/app
+    networks:
+      - cag_network
+
+  # App 3: Code Review Bot
+  app_code_reviewer:
+    build:
+      context: ./app_03_code_reviewer/backend
+      dockerfile: Dockerfile
+    container_name: cag_code_reviewer
+    ports:
+      - "8003:8003"
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+      - REDIS_HOST=redis
+    depends_on:
+      - ollama
+      - redis
+    volumes:
+      - ./app_03_code_reviewer/backend:/app
+    networks:
+      - cag_network
+
+  # App 4: Customer Support Agent
+  app_support_agent:
+    build:
+      context: ./app_04_support_agent/backend
+      dockerfile: Dockerfile
+    container_name: cag_support_agent
+    ports:
+      - "8004:8004"
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+      - REDIS_HOST=redis
+      - CHROMA_HOST=http://chromadb:8000
+    depends_on:
+      - ollama
+      - redis
+      - chromadb
+    volumes:
+      - ./app_04_support_agent/backend:/app
+    networks:
+      - cag_network
+
+  # App 5: Financial Report Analyzer
+  app_financial_analyzer:
+    build:
+      context: ./app_05_financial_analyzer/backend
+      dockerfile: Dockerfile
+    container_name: cag_financial_analyzer
+    ports:
+      - "8005:8005"
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+      - POSTGRES_HOST=postgres
+      - POSTGRES_USER=cag_user
+      - POSTGRES_PASSWORD=cag_password
+      - POSTGRES_DB=cag_db
+    depends_on:
+      - ollama
+      - postgres
+    volumes:
+      - ./app_05_financial_analyzer/backend:/app
+    networks:
+      - cag_network
+
+  # App 6: Research Paper Summarizer
+  app_paper_summarizer:
+    build:
+      context: ./app_06_paper_summarizer/backend
+      dockerfile: Dockerfile
+    container_name: cag_paper_summarizer
+    ports:
+      - "8006:8006"
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+      - CHROMA_HOST=http://chromadb:8000
+    depends_on:
+      - ollama
+      - chromadb
+    volumes:
+      - ./app_06_paper_summarizer/backend:/app
+    networks:
+      - cag_network
+
+  # App 7: E-commerce Product Recommender
+  app_product_recommender:
+    build:
+      context: ./app_07_product_recommender/backend
+      dockerfile: Dockerfile
+    container_name: cag_product_recommender
+    ports:
+      - "8007:8007"
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+      - MONGODB_HOST=mongodb
+      - MONGODB_USER=cag_user
+      - MONGODB_PASSWORD=cag_password
+    depends_on:
+      - ollama
+      - mongodb
+    volumes:
+      - ./app_07_product_recommender/backend:/app
+    networks:
+      - cag_network
+
+  # App 8: Educational Tutor
+  app_educational_tutor:
+    build:
+      context: ./app_08_educational_tutor/backend
+      dockerfile: Dockerfile
+    container_name: cag_educational_tutor
+    ports:
+      - "8008:8008"
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+      - REDIS_HOST=redis
+    depends_on:
+      - ollama
+      - redis
+    volumes:
+      - ./app_08_educational_tutor/backend:/app
+    networks:
+      - cag_network
+
+  # App 9: Contract Compliance Checker
+  app_compliance_checker:
+    build:
+      context: ./app_09_compliance_checker/backend
+      dockerfile: Dockerfile
+    container_name: cag_compliance_checker
+    ports:
+      - "8009:8009"
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+      - CHROMA_HOST=http://chromadb:8000
+    depends_on:
+      - ollama
+      - chromadb
+    volumes:
+      - ./app_09_compliance_checker/backend:/app
+    networks:
+      - cag_network
+
+  # App 10: News Fact Checker
+  app_fact_checker:
+    build:
+      context: ./app_10_fact_checker/backend
+      dockerfile: Dockerfile
+    container_name: cag_fact_checker
+    ports:
+      - "8010:8010"
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+      - ELASTICSEARCH_HOST=http://elasticsearch:9200
+    depends_on:
+      - ollama
+      - elasticsearch
+    volumes:
+      - ./app_10_fact_checker/backend:/app
+    networks:
+      - cag_network
+
+  # Prometheus for monitoring
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: cag_prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+    networks:
+      - cag_network
+
+  # Grafana for visualization
+  grafana:
+    image: grafana/grafana:latest
+    container_name: cag_grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_USERS_ALLOW_SIGN_UP=false
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./monitoring/grafana/dashboards:/etc/grafana/provisioning/dashboards
+    depends_on:
+      - prometheus
+    networks:
+      - cag_network
+
+volumes:
+  ollama_data:
+  chroma_data:
+  redis_data:
+  postgres_data:
+  mongodb_data:
+  neo4j_data:
+  elasticsearch_data:
+  prometheus_data:
+  grafana_data:
+
+networks:
+  cag_network:
+    driver: bridge
