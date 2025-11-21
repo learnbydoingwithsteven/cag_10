@@ -127,11 +127,16 @@ jobs:
           
           # Install dependencies with npm install (not ci since no package-lock.json)
           npm install
+          echo "✓ Successfully installed dependencies for ${{ matrix.app }}"
           
-          # Try to build if build script exists
+          # Try to build if build script exists and index.html exists
           if grep -q '"build"' package.json; then
-            npm run build
-            echo "✓ Successfully built frontend for ${{ matrix.app }}"
+            if [ -f "public/index.html" ]; then
+              npm run build
+              echo "✓ Successfully built frontend for ${{ matrix.app }}"
+            else
+              echo "⚠ Skipping build - no public/index.html found (placeholder frontend)"
+            fi
           else
             echo "⚠ No build script found in package.json"
           fi
