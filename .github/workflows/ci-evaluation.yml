@@ -85,7 +85,7 @@ jobs:
     
     - name: Upload security reports
       if: always()
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: security-reports
         path: |
@@ -177,7 +177,7 @@ jobs:
     - name: Validate docker-compose.yml
       run: |
         if [ -f "docker-compose.yml" ]; then
-          docker-compose config > /dev/null
+          docker compose config > /dev/null
           echo "✓ docker-compose.yml is valid"
         else
           echo "⚠ No docker-compose.yml found"
