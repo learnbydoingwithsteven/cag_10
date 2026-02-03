@@ -221,8 +221,20 @@ async def upload_document_file(file: UploadFile = File(...)):
         if file.filename.endswith('.txt'):
             text = content.decode('utf-8')
         elif file.filename.endswith('.pdf'):
-            # TODO: Implement PDF extraction
-            raise HTTPException(status_code=400, detail="PDF extraction not yet implemented")
+            import io
+            from pypdf import PdfReader
+            
+            # Create a PDF reader object
+            pdf_file = io.BytesIO(content)
+            reader = PdfReader(pdf_file)
+            
+            # Extract text from all pages
+            text = ""
+            for page in reader.pages:
+                text += page.extract_text() + "\n"
+                
+            if not text.strip():
+                raise HTTPException(status_code=400, detail="Could not extract text from PDF (it might be empty or scanned)")
         else:
             raise HTTPException(status_code=400, detail="Unsupported file type")
         

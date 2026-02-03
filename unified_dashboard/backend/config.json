@@ -1,0 +1,87 @@
+{
+  "apps": {
+    "1": {
+      "id": "1",
+      "name": "Legal Analyzer",
+      "folder": "app_01_legal_analyzer",
+      "frontend_port": 3001,
+      "backend_port": 8001,
+      "description": "Analyze legal documents.",
+      "env_vars": {
+        "CHROMA_PERSIST_DIRECTORY": "./chroma_data_local"
+      }
+    },
+    "2": {
+      "id": "2",
+      "name": "Medical Assistant",
+      "folder": "app_02_medical_assistant",
+      "frontend_port": 3002,
+      "backend_port": 8002,
+      "description": "Medical assistance and diagnosis help."
+    },
+    "3": {
+      "id": "3",
+      "name": "Code Reviewer",
+      "folder": "app_03_code_reviewer",
+      "frontend_port": 3003,
+      "backend_port": 8003,
+      "description": "Automated code review and suggestions."
+    },
+    "4": {
+      "id": "4",
+      "name": "Support Agent",
+      "folder": "app_04_support_agent",
+      "frontend_port": 3004,
+      "backend_port": 8004,
+      "description": "Customer support automation."
+    },
+    "5": {
+      "id": "5",
+      "name": "Financial Analyzer",
+      "folder": "app_05_financial_analyzer",
+      "frontend_port": 3005,
+      "backend_port": 8005,
+      "description": "Financial data analysis."
+    },
+    "6": {
+      "id": "6",
+      "name": "Paper Summarizer",
+      "folder": "app_06_paper_summarizer",
+      "frontend_port": 3006,
+      "backend_port": 8006,
+      "description": "Summarize academic papers."
+    },
+    "7": {
+      "id": "7",
+      "name": "Product Recommender",
+      "folder": "app_07_product_recommender",
+      "frontend_port": 3007,
+      "backend_port": 8007,
+      "description": "Product recommendations engine."
+    },
+    "8": {
+      "id": "8",
+      "name": "Educational Tutor",
+      "folder": "app_08_educational_tutor",
+      "frontend_port": 3008,
+      "backend_port": 8008,
+      "description": "AI-powered tutoring system."
+    },
+    "9": {
+      "id": "9",
+      "name": "Compliance Checker",
+      "folder": "app_09_compliance_checker",
+      "frontend_port": 3009,
+      "backend_port": 8009,
+      "description": "Regulatory compliance verification."
+    },
+    "10": {
+      "id": "10",
+      "name": "Fact Checker",
+      "folder": "app_10_fact_checker",
+      "frontend_port": 3010,
+      "backend_port": 8010,
+      "description": "Automated fact checking."
+    }
+  }
+}
