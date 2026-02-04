@@ -22,7 +22,16 @@ APPS = {
         "env_vars": {
              "CHROMA_PERSIST_DIRECTORY": "./chroma_data_local"
         }
-    }
+    },
+    "2": { "name": "app_02_medical_assistant", "port_backend": 8002, "port_frontend": 3002 },
+    "3": { "name": "app_03_code_reviewer", "port_backend": 8003, "port_frontend": 3003 },
+    "4": { "name": "app_04_support_agent", "port_backend": 8004, "port_frontend": 3004 },
+    "5": { "name": "app_05_financial_analyzer", "port_backend": 8005, "port_frontend": 3005 },
+    "6": { "name": "app_06_paper_summarizer", "port_backend": 8006, "port_frontend": 3006 },
+    "7": { "name": "app_07_product_recommender", "port_backend": 8007, "port_frontend": 3007 },
+    "8": { "name": "app_08_educational_tutor", "port_backend": 8008, "port_frontend": 3008 },
+    "9": { "name": "app_09_compliance_checker", "port_backend": 8009, "port_frontend": 3009 },
+    "10": { "name": "app_10_fact_checker", "port_backend": 8010, "port_frontend": 3010 }
 }
 
 def install_dependencies(app_id):
@@ -35,12 +44,19 @@ def install_dependencies(app_id):
     # 1. Shared Requirements
     shared_req = Path("shared/requirements.txt")
     if shared_req.exists():
-        subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", str(shared_req)])
-    
+        try:
+            print("Installing shared requirements...")
+            subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", str(shared_req)])
+        except subprocess.CalledProcessError as e:
+            print(f"Warning: Failed to install some shared requirements: {e}. Continuing...")
+
     # 2. Backend Requirements
     backend_req = app_dir / "backend" / "requirements.txt"
     if backend_req.exists():
-        subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", str(backend_req)])
+        try:
+            subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", str(backend_req)])
+        except subprocess.CalledProcessError as e:
+             print(f"Warning: Failed to install backend requirements: {e}")
         
     # 3. Extra local requirements (not in docker-compose)
     subprocess.check_call([sys.executable, "-m", "pip", "install", "chromadb", "pypdf", "sentence-transformers"])

@@ -10,7 +10,7 @@ sentence-transformers==2.2.2
 transformers==4.35.2
 
 # Vector Databases
-chromadb==0.4.18
+chromadb
 elasticsearch==8.11.0
 
 # Databases
