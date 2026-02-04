@@ -4,6 +4,11 @@
 
 All 10 Context-Augmented Generation (CAG) applications have been successfully created with complete backends and frontends.
 
+> [!IMPORTANT]
+> **2026 Update**: A **Unified Dashboard** has been implemented to manage all applications.
+> Please refer to [WALKTHROUGH.md](WALKTHROUGH.md) for the latest verification status and run instructions.
+
+
 ### Application List
 
 | # | Application | CAG Technique | Port | Status |
