@@ -18,7 +18,12 @@ class MedicalMultiHopCAG(CAGTechnique):
     """Multi-hop reasoning for medical diagnosis using knowledge graphs"""
     
     def __init__(self, ollama_client: OllamaClient, neo4j_uri: str, neo4j_user: str, neo4j_password: str):
-        super().__init__(ollama_client)
+        config = {
+            "neo4j_uri": neo4j_uri,
+            "neo4j_user": neo4j_user
+        }
+        super().__init__("MedicalMultiHopCAG", config)
+        self.ollama_client = ollama_client
         self.driver = GraphDatabase.driver(neo4j_uri, auth=(neo4j_user, neo4j_password))
         self._initialize_medical_knowledge()
     

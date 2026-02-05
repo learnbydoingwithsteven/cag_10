@@ -10,7 +10,7 @@ sentence-transformers==2.2.2
 transformers==4.35.2
 
 # Vector Databases
-chromadb
+# chromadb handled in run_local.py for windows compatibility
 elasticsearch==8.11.0
 
 # Databases

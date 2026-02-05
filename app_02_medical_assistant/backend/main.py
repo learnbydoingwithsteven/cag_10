@@ -26,7 +26,7 @@ app.add_middleware(
 )
 
 # Initialize CAG system
-ollama_client = OllamaClient(base_url="http://ollama:11434")
+ollama_client = OllamaClient(host="http://localhost:11434")
 medical_cag = MedicalMultiHopCAG(
     ollama_client=ollama_client,
     neo4j_uri="bolt://neo4j:7687",

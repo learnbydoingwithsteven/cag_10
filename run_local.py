@@ -59,7 +59,8 @@ def install_dependencies(app_id):
              print(f"Warning: Failed to install backend requirements: {e}")
         
     # 3. Extra local requirements (not in docker-compose)
-    subprocess.check_call([sys.executable, "-m", "pip", "install", "chromadb", "pypdf", "sentence-transformers"])
+    # Use only-binary for chromadb to avoid build issues on Windows
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "chromadb", "pypdf", "sentence-transformers", "--only-binary", ":all:"])
     
     # 4. Frontend Dependencies
     frontend_dir = app_dir / "frontend"
