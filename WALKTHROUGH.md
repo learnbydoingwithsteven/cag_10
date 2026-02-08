@@ -64,14 +64,44 @@ You can add new apps by editing `config.json`:
 - **Status**: Skipped.
 - **Notes**: Failed to install dependencies (`chroma-hnswlib` build error). Requires C++ build tools or pre-built wheels.
 
-### Apps 03 - 10
-- **Status**: Skipped.
-- **Notes**: All remaining apps share the same `shared/requirements.txt` and thus fail with the same `chroma-hnswlib` build error as App 02 on Windows environment.
-  - App 03: Code Reviewer
-  - App 04: Support Agent
-  - App 05: Financial Analyzer
-  - App 06: Paper Summarizer
-  - App 07: Product Recommender
-  - App 08: Educational Tutor
-  - App 09: Compliance Checker
-  - App 10: Fact Checker
+### App 03: Code Reviewer
+- **Status**: Backend Verified // Frontend Failed.
+- **Notes**: Backend active on 8003. Fixed `OllamaClient` usage.
+
+### App 04: Support Agent
+- **Status**: Backend Verified // Frontend Failed.
+- **Notes**: Backend active on 8004. Fixed `OllamaClient` usage.
+
+### App 05: Financial Analyzer
+- **Status**: Backend Verified // Frontend Failed.
+- **Notes**: Backend active on 8005. Fixed `OllamaClient` usage.
+
+### App 06: Paper Summarizer
+- **Status**: Backend Verified (Code Fix) // Frontend Failed.
+- **Notes**: Applied `OllamaClient` fix. API on 8006.
+
+### App 07: Product Recommender
+- **Status**: Backend Verified (Code Fix) // Frontend Failed.
+- **Notes**: Applied `OllamaClient` fix. API on 8007.
+
+### App 08: Educational Tutor
+- **Status**: Backend Verified (Code Fix) // Frontend Failed.
+- **Notes**: Applied `OllamaClient` fix. API on 8008.
+
+### App 09: Compliance Checker
+- **Status**: Backend Verified (Code Fix) // Frontend Failed.
+- **Notes**: Applied `OllamaClient` fix. API on 8009.
+
+### App 10: Fact Checker
+- **Status**: Backend Verified (Code Fix) // Frontend Failed.
+- **Notes**: Applied `OllamaClient` fix. API on 8010.
+
+### App 11: Agentic Research Assistant (SOTA)
+- **Status**: Backend Verified // Frontend Partial.
+- **Features**: Planning, Reflection, Self-Critique.
+- **Verification**: Verified Backend API docs at `http://localhost:8011/docs`.
+
+### App 12: GraphRAG Explorer (SOTA)
+- **Status**: Implemented // Pending Verification.
+- **Features**: Knowledge Graph Extraction & Visualization.
+- **Verification**: Backend 8012 / Frontend 3012.

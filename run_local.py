@@ -31,7 +31,9 @@ APPS = {
     "7": { "name": "app_07_product_recommender", "port_backend": 8007, "port_frontend": 3007 },
     "8": { "name": "app_08_educational_tutor", "port_backend": 8008, "port_frontend": 3008 },
     "9": { "name": "app_09_compliance_checker", "port_backend": 8009, "port_frontend": 3009 },
-    "10": { "name": "app_10_fact_checker", "port_backend": 8010, "port_frontend": 3010 }
+    "10": { "name": "app_10_fact_checker", "port_backend": 8010, "port_frontend": 3010 },
+    "11": { "name": "app_11_agentic_researcher", "port_backend": 8011, "port_frontend": 3011 },
+    "12": { "name": "app_12_graph_rag", "port_backend": 8012, "port_frontend": 3012 }
 }
 
 def install_dependencies(app_id):

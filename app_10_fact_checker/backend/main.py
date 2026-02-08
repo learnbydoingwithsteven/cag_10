@@ -23,7 +23,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-ollama_client = OllamaClient(base_url="http://ollama:11434")
+ollama_client = OllamaClient(host="http://localhost:11434")
 
 
 class QueryRequest(BaseModel):
@@ -67,7 +67,7 @@ Context:
 
 Provide a comprehensive response."""
         
-        response = ollama_client.generate(prompt=prompt, model="llama3")
+        response, _ = await ollama_client.generate(prompt=prompt, model="llama3")
         
         process_steps = [
             {"step": "context_retrieval", "description": "Retrieved relevant context"},

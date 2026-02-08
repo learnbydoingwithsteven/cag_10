@@ -82,6 +82,22 @@
       "frontend_port": 3010,
       "backend_port": 8010,
       "description": "Automated fact checking."
+    },
+    "11": {
+      "id": "11",
+      "name": "Agentic Researcher",
+      "folder": "app_11_agentic_researcher",
+      "frontend_port": 3011,
+      "backend_port": 8011,
+      "description": "SOTA Agentic reasoning with planning & reflection."
+    },
+    "12": {
+      "id": "12",
+      "name": "GraphRAG Explorer",
+      "folder": "app_12_graph_rag",
+      "frontend_port": 3012,
+      "backend_port": 8012,
+      "description": "GraphRAG knowledge extraction & visualization."
     }
   }
 }
