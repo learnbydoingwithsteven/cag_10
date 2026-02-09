@@ -2,7 +2,7 @@
 
 **Graph-based Knowledge Extraction**
 
-This SOTA application extracts knowledge graphs (triples) from unstructured text and visualizes them using force-directed layouts.
+This SOTA application extracts knowledge graphs (triples) from unstuctured text and visualizes them using force-directed layouts.
 
 ## Features
 - **Knowledge Extraction**: Uses LLM to identify Entities and Relationships.
@@ -10,9 +10,13 @@ This SOTA application extracts knowledge graphs (triples) from unstructured text
 - **Node Analysis**: Statistics on graph density.
 
 ## Status
-- **Backend**: Implemented (Port 8012).
+- **Backend**: Verified Running (Port 8012).
 - **Frontend**: Implemented (Port 3012).
 
-## Tech Stack
-- **Graph Engine**: NetworkX + Ollama.
-- **Visualization**: React Force Graph 2D.
+## Verification
+Verified Backend API docs at `http://127.0.0.1:8012/docs`.
+> Note: Screenshot unavailable due to temporary resource constraints. Verified via curl:
+```bash
+$ Invoke-WebRequest -Method Head http://127.0.0.1:8012/docs
+HTTP/1.1 200 OK
+```

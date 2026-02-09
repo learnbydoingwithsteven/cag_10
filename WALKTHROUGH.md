@@ -89,12 +89,12 @@ You can add new apps by editing `config.json`:
 - **Notes**: Applied `OllamaClient` fix. API on 8008.
 
 ### App 09: Compliance Checker
-- **Status**: Backend Verified (Code Fix) // Frontend Failed.
-- **Notes**: Applied `OllamaClient` fix. API on 8009.
+- **Status**: Backend Verified // Frontend Failed.
+- **Notes**: Applied `OllamaClient` fix. API verified on 8009.
 
 ### App 10: Fact Checker
-- **Status**: Backend Verified (Code Fix) // Frontend Failed.
-- **Notes**: Applied `OllamaClient` fix. API on 8010.
+- **Status**: Backend Verified // Frontend Failed.
+- **Notes**: Applied `OllamaClient` fix. API verified on 8010.
 
 ### App 11: Agentic Research Assistant (SOTA)
 - **Status**: Backend Verified // Frontend Partial.
@@ -102,6 +102,6 @@ You can add new apps by editing `config.json`:
 - **Verification**: Verified Backend API docs at `http://localhost:8011/docs`.
 
 ### App 12: GraphRAG Explorer (SOTA)
-- **Status**: Implemented // Pending Verification.
+- **Status**: Backend Verified // Frontend Implemented.
 - **Features**: Knowledge Graph Extraction & Visualization.
-- **Verification**: Backend 8012 / Frontend 3012.
+- **Verification**: Backend API verified running on 8012 (curl).
