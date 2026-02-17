@@ -92,6 +92,25 @@ This project delivers **10 production-ready full-stack applications** demonstrat
 - ✅ Features: Claim extraction, cross-reference, evidence scoring
 - ✅ Verdicts: True, False, Partially True, Unverifiable
 
+#### App 11: Agentic Research Assistant (Port 8011)
+**CAG Technique**: Agentic Workflow with Planning
+- ✅ Backend: Custom agent loop with reflection
+- ✅ Features: Planning, iterative execution, self-correction
+- ✅ Reasoning: Step-by-step logic visualization
+
+#### App 12: GraphRAG Explorer (Port 8012)
+**CAG Technique**: Graph-based Retrieval
+- ✅ Backend: Unstructured text to Graph extraction
+- ✅ Features: Force-directed graph visualization
+- ✅ Analysis: Entity relationship mapping
+
+#### App 13: Git Sync Assistant (Port 8013)
+**CAG Technique**: Expert System CAG
+- ✅ Backend: Git scenario analysis and command generation
+- ✅ Features: Conflict resolution advice, workflow optimization
+- ✅ Context: Git documentation and best practices
+
+
 ### 3. Infrastructure & DevOps
 
 #### Docker Compose (`docker-compose.yml`)
@@ -258,6 +277,10 @@ docker-compose up -d
 - Educational Tutor: http://localhost:8008
 - Compliance Checker: http://localhost:8009
 - Fact Checker: http://localhost:8010
+- Agentic Researcher: http://localhost:8011
+- GraphRAG Explorer: http://localhost:8012
+- Git Sync Assistant: http://localhost:8013
+
 
 ### Run Evaluation
 ```bash

@@ -105,6 +105,8 @@ APPS=(
     "app_educational_tutor:8008:Educational Tutor"
     "app_compliance_checker:8009:Contract Compliance Checker"
     "app_fact_checker:8010:News Fact Checker"
+    "app_git_sync:8013:Git Sync Assistant"
+
 )
 
 for app_info in "${APPS[@]}"; do
