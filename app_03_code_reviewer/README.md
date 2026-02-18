@@ -40,6 +40,10 @@ How CAG retrieves **security, performance, and style guidelines** from a curated
 
 The CAG correctly identified SQL injection risk and retrieved security + error handling guidelines.
 
+## API Documentation
+
+![Code Review Bot API - Swagger Docs](assets/swagger_docs.webp)
+
 ## Quick Start
 ```bash
 cd backend && py main.py    # Port 8003

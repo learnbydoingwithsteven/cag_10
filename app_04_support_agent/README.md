@@ -36,6 +36,10 @@ How CAG uses a **customer support knowledge base** to provide accurate, empathet
 
 The CAG achieved **98% relevance** — it retrieved exactly the right procedure for the user's issue.
 
+## API Documentation
+
+![Customer Support Agent API - Swagger Docs](assets/swagger_docs.png)
+
 ## Quick Start
 ```bash
 cd backend && py main.py    # Port 8004

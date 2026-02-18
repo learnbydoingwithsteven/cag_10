@@ -34,6 +34,10 @@ How CAG can augment LLM analysis with **financial formulas, ratio benchmarks, an
 | Avg Relevance | 0.73 |
 | Generation Time | 10,833ms |
 
+## API Documentation
+
+![Financial Report Analyzer API - Swagger Docs](assets/swagger_docs.png)
+
 ## Quick Start
 ```bash
 cd backend && py main.py    # Port 8005

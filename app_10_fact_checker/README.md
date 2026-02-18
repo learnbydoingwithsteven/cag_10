@@ -28,6 +28,10 @@ How CAG equips the LLM with a **fact-checking methodology** — teaching it to d
 
 The CAG retrieved the entire fact-checking methodology, enabling a structured analysis with claim decomposition and verdict.
 
+## API Documentation
+
+![Fact Checker API - Swagger Docs](assets/swagger_docs.png)
+
 ## Quick Start
 ```bash
 cd backend && py main.py    # Port 8010

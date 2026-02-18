@@ -36,6 +36,10 @@ How CAG can enforce **regulatory compliance rules** by augmenting the LLM with s
 
 The CAG correctly retrieved GDPR articles and data retention rules, enabling a structured compliance assessment.
 
+## API Documentation
+
+![Compliance Checker API - Swagger Docs](assets/swagger_docs.png)
+
 ## Quick Start
 ```bash
 cd backend && py main.py    # Port 8009
