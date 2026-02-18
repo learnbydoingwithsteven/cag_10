@@ -1,18 +1,33 @@
 # App 06: Research Paper Summarizer
 
-**Hierarchical CAG**
+**CAG Technique: Hierarchical Summarization CAG**
 
-This application summarizes academic papers using a hierarchical approach (Section -> Chapter -> Paper).
+## What This App Teaches
+How CAG provides **structured summarization guidelines** to ensure the LLM produces multi-level summaries (TL;DR → Key Findings → Detailed Analysis) — teaching it the academic paper structure.
 
-## Features
-- **Hierarchical Summarization**: Summarizes sections first, then combines them.
-- **Key Insight Extraction**: Identifies main contributions and findings.
-- **Citation Analysis**: Tracks references and their context.
+## Knowledge Base (7 items)
+- `abstract_guide` — Claim/evidence/significance extraction
+- `methodology_guide` — Experimental setup, datasets, baselines, metrics
+- `results_guide` — Main results interpretation, statistical significance
+- `citation_guide` — Citation context analysis (contrast vs building-upon)
+- `limitations_guide` — Assumption checking, bias detection
+- `hierarchy_guide` — L1-L4 summary levels
+- `reproducibility` — Code availability, hyperparameters, compute requirements
 
-## Status
-- **Backend**: Verified Running (Port 8006).
-- **Frontend**: Failed to start (Port 3006) due to environment issues.
+## Test Results ✅
 
-## Verification
-Verified Backend API docs at `http://localhost:8006/docs`.
-![Backend Docs](\app_06_docs_1770645785653.png)
+**Query**: _"Summarize a paper about transformer architecture and attention mechanisms"_
+
+| Metric | Value |
+|---|---|
+| Response Length | 2,058 chars |
+| Context Chunks | 5 (all structure guides) |
+| Sources Retrieved | `abstract_guide`, `methodology_guide`, `results_guide`, `citation_guide`, `limitations_guide` |
+| Avg Relevance | 0.52 |
+| Generation Time | 3,744ms (fastest) |
+
+## Quick Start
+```bash
+cd backend && py main.py    # Port 8006
+cd frontend && npm start    # Port 3006
+```

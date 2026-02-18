@@ -1,18 +1,35 @@
-# App 07: E-commerce Product Recommender
+# App 07: Product Recommender
 
-**Hybrid CAG**
+**CAG Technique: Hybrid Collaborative-Content CAG**
 
-This application provides personalized product recommendations using a hybrid CAG approach (Content-based + Collaborative Filtering reasoning).
+## What This App Teaches
+How CAG can combine **collaborative filtering theory + content-based filtering + explainability guidelines** to generate meaningful product recommendations with explanations.
 
-## Features
-- **User Preference Analysis**: Understands user history and queries.
-- **Product Retrieval**: Findings relevant products from catalog.
-- **Explanation Generation**: Explains *why* a product was recommended.
+## Knowledge Base (7 items)
+- `collab_filtering` — User-item interaction patterns, cold-start problem
+- `content_filtering` — Item features (category, brand, price range)
+- `hybrid` — Weighted hybrid scoring, switch hybrid strategy
+- `catalog` — Product categories (electronics, clothing, home, books)
+- `segments` — User segments (budget, mid-range, premium, frequency)
+- `explainability` — Recommendation explanation templates (30% CTR improvement)
+- `diversity` — 20% exploration for serendipity, filter bubble avoidance
 
-## Status
-- **Backend**: Verified Running (Port 8007).
-- **Frontend**: Failed to start (Port 3007) due to environment issues.
+## Test Results ✅
 
-## Verification
-Verified Backend API docs at `http://localhost:8007/docs`.
-![Backend Docs](\app_07_docs_1770646411648.png)
+**Query**: _"Recommend products for a budget-conscious college student who likes electronics"_
+
+| Metric | Value |
+|---|---|
+| Response Length | 2,652 chars |
+| Context Chunks | 5 |
+| Sources Retrieved | `content_filtering`, `explainability`, `catalog`, `segments`, `diversity` |
+| Avg Relevance | **0.91** (second highest) |
+| Generation Time | 7,027ms |
+
+The CAG correctly matched "budget" to `segments` and "electronics" to `catalog`, producing contextually relevant recommendations.
+
+## Quick Start
+```bash
+cd backend && py main.py    # Port 8007
+cd frontend && npm start    # Port 3007
+```

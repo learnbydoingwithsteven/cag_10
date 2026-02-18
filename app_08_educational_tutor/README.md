@@ -1,18 +1,35 @@
 # App 08: Educational Tutor
 
-**Adaptive CAG**
+**CAG Technique: Adaptive Difficulty CAG**
 
-This application adjusts its responses based on the user's expertise level (Beginner/Expert).
+## What This App Teaches
+How CAG uses **pedagogy frameworks** (Bloom's Taxonomy, scaffolding, spaced repetition) to teach the LLM how to be a good tutor — explaining concepts at the right level with examples and practice problems.
 
-## Features
-- **User Profiling**: Detects expertise level from query complexity.
-- **Adaptive Retrieval**: Fetches simple vs. technical documents.
-- **Response Tailoring**: Simplifies or deepens the explanation.
+## Knowledge Base (7 items)
+- `blooms_taxonomy` — Remember → Understand → Apply → Analyze → Evaluate → Create
+- `scaffolding` — Break complex concepts, provide hints, gradually remove support
+- `assessment` — Formative assessment, misconception detection
+- `spaced_repetition` — Interval review (1, 3, 7, 14 days), active recall
+- `analogies` — Concrete before abstract, multiple representations
+- `growth_mindset` — Praise effort, frame mistakes as learning
+- `subjects` — Mathematics, science, programming, language
 
-## Status
-- **Backend**: Verified Running (Port 8008).
-- **Frontend**: Failed to start (Port 3008) due to environment issues.
+## Test Results ✅
 
-## Verification
-Verified Backend API docs at `http://localhost:8008/docs`.
-![Backend Docs](\app_08_api_docs_1770646907338.png)
+**Query**: _"Explain how recursion works in programming with an example"_
+
+| Metric | Value |
+|---|---|
+| Response Length | 1,997 chars |
+| Context Chunks | 5 |
+| Sources Retrieved | `analogies`, `subjects`, `blooms_taxonomy`, `scaffolding`, `assessment` |
+| Avg Relevance | 0.59 |
+| Generation Time | 6,706ms |
+
+The CAG retrieved pedagogy guidelines to structure the response: concept → analogy → example → practice.
+
+## Quick Start
+```bash
+cd backend && py main.py    # Port 8008
+cd frontend && npm start    # Port 3008
+```

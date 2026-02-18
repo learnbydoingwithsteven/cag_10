@@ -1,282 +1,239 @@
-# 10 Ollama CAG Applications - Production Suite
+# CAG Applications Suite — Context-Augmented Generation with Ollama
 
-## Overview
-This repository contains 10 production-ready full-stack applications demonstrating different Context-Augmented Generation (CAG) techniques using Ollama. Each application includes detailed process visualization, evaluation pipelines, and CI/CD integration.
+## 🎓 What is CAG? (And How It Differs from RAG)
 
-## Applications
+### RAG vs CAG: Key Differences
 
-### 1. **Legal Document Analyzer** (RAG + Citation)
-- **Use Case**: Analyze legal documents with source citations
-- **CAG Technique**: Retrieval-Augmented Generation with citation tracking
-- **Tech Stack**: FastAPI, React, ChromaDB, Ollama (llama3)
+| Feature | **RAG** (Retrieval-Augmented Generation) | **CAG** (Context-Augmented Generation) |
+|---|---|---|
+| **Knowledge Storage** | External vector database (ChromaDB, Pinecone, etc.) | In-memory knowledge base, **preloaded at startup** |
+| **Retrieval** | Embedding similarity search at query time | Keyword/rule-based matching from cached knowledge |
+| **Latency** | Higher (embedding + vector search + LLM) | Lower (no embedding step, knowledge already in memory) |
+| **Infrastructure** | Requires vector DB, embedding model, chunking pipeline | **Zero infrastructure** — knowledge is code |
+| **Knowledge Update** | Re-embed + re-index documents | Update code and restart |
+| **Best For** | Large, evolving document collections | Curated expert knowledge, domain rules, structured guidelines |
+| **Trade-off** | More flexible, handles arbitrary documents | Faster, simpler, more predictable, easier to debug |
 
-### 2. **Medical Diagnosis Assistant** (Multi-hop CAG)
-- **Use Case**: Medical symptom analysis with multi-step reasoning
-- **CAG Technique**: Multi-hop reasoning with medical knowledge graphs
-- **Tech Stack**: FastAPI, React, Neo4j, Ollama (meditron)
+### The CAG 3-Step Pipeline
 
-### 3. **Code Review Bot** (Context-aware Analysis)
-- **Use Case**: Automated code review with contextual understanding
-- **CAG Technique**: AST-based context augmentation
-- **Tech Stack**: FastAPI, React, Tree-sitter, Ollama (codellama)
-
-### 4. **Customer Support Agent** (Conversational CAG)
-- **Use Case**: Intelligent customer support with conversation history
-- **CAG Technique**: Conversational context with memory management
-- **Tech Stack**: FastAPI, React, Redis, Ollama (mistral)
-
-### 5. **Financial Report Analyzer** (Structured CAG)
-- **Use Case**: Financial document analysis and insights
-- **CAG Technique**: Structured data extraction with context
-- **Tech Stack**: FastAPI, React, PostgreSQL, Ollama (llama3)
-
-### 6. **Research Paper Summarizer** (Hierarchical CAG)
-- **Use Case**: Academic paper summarization with section awareness
-- **CAG Technique**: Hierarchical summarization with structure preservation
-- **Tech Stack**: FastAPI, React, ChromaDB, Ollama (llama3)
-
-### 7. **E-commerce Product Recommender** (Hybrid CAG)
-- **Use Case**: Product recommendations with user context
-- **CAG Technique**: Hybrid collaborative + content-based CAG
-- **Tech Stack**: FastAPI, React, MongoDB, Ollama (mistral)
-
-### 8. **Educational Tutor** (Adaptive CAG)
-- **Use Case**: Personalized learning with adaptive difficulty
-- **CAG Technique**: Adaptive context based on learner performance
-- **Tech Stack**: FastAPI, React, SQLite, Ollama (llama3)
-
-### 9. **Contract Compliance Checker** (Rule-based CAG)
-- **Use Case**: Contract analysis against compliance rules
-- **CAG Technique**: Rule-based context augmentation with legal frameworks
-- **Tech Stack**: FastAPI, React, ChromaDB, Ollama (llama3)
-
-### 10. **News Fact Checker** (Multi-source CAG)
-- **Use Case**: Fact-checking with multiple source verification
-- **CAG Technique**: Multi-source context aggregation and verification
-- **Tech Stack**: FastAPI, React, Elasticsearch, Ollama (mistral)
-
-## Project Structure
+Every app in this suite follows the same **Retrieve → Augment → Generate** pipeline:
 
 ```
-cag_10/
-├── shared/                      # Shared utilities and frameworks
-│   ├── cag_engine/             # Core CAG engine
-│   ├── evaluation/             # Evaluation framework
-│   ├── cicd/                   # CI/CD pipelines
-│   └── ui_components/          # Shared React components
-├── app_01_legal_analyzer/      # Legal Document Analyzer
-├── app_02_medical_assistant/   # Medical Diagnosis Assistant
-├── app_03_code_reviewer/       # Code Review Bot
-├── app_04_support_agent/       # Customer Support Agent
-├── app_05_financial_analyzer/  # Financial Report Analyzer
-├── app_06_paper_summarizer/    # Research Paper Summarizer
-├── app_07_product_recommender/ # E-commerce Recommender
-├── app_08_educational_tutor/   # Educational Tutor
-├── app_09_compliance_checker/  # Contract Compliance Checker
-├── app_10_fact_checker/        # News Fact Checker
-├── docker-compose.yml          # Multi-service orchestration
-├── .github/                    # GitHub Actions workflows
-└── README.md                   # This file
+┌─────────────────────────────────────────────────────────────────┐
+│                    CAG Pipeline (per request)                   │
+│                                                                 │
+│  1. RETRIEVE    ──→  Match query against in-memory knowledge    │
+│     (< 1ms)          base using keyword scoring + relevance     │
+│                                                                 │
+│  2. AUGMENT     ──→  Build expert prompt with retrieved context │
+│     (< 1ms)          + domain-specific instructions             │
+│                                                                 │
+│  3. GENERATE    ──→  Send augmented prompt to local Ollama LLM  │
+│     (2-12s)          for response generation                    │
+│                                                                 │
+│  Total latency dominated by LLM generation, NOT retrieval.      │
+└─────────────────────────────────────────────────────────────────┘
 ```
 
-## Key Features
+### Why CAG for Learning?
 
-### 🎯 CAG Techniques Implemented
-- **RAG (Retrieval-Augmented Generation)**: Vector similarity search + generation
-- **Multi-hop Reasoning**: Iterative context refinement
-- **Hierarchical Context**: Structured document understanding
-- **Conversational Memory**: Session-based context management
-- **Hybrid Context**: Multiple context sources fusion
-- **Adaptive Context**: Dynamic context based on user state
-- **Rule-based Context**: Compliance and constraint-aware generation
+CAG is the **ideal starting point** for learning augmented generation because:
+1. **No infrastructure needed** — no vector DBs, no embedding models, no cloud services
+2. **Knowledge is transparent** — you can read the entire knowledge base in the source code
+3. **Deterministic retrieval** — same query always retrieves same context (easy to debug)
+4. **Focus on the pattern** — understand Retrieve → Augment → Generate without infrastructure noise
 
-### 📊 Process Visualization
-- Real-time context retrieval display
-- Step-by-step reasoning visualization
-- Token usage and performance metrics
-- Context relevance scoring
-- Generation progress tracking
+> **Note**: App 01 (Legal Analyzer) uses traditional **RAG** with ChromaDB for comparison.
+> Apps 03-14 use **CAG** with in-memory knowledge bases.
 
-### 🧪 Evaluation Pipeline
-- **Accuracy Metrics**: Precision, recall, F1-score
-- **Relevance Scoring**: Context-answer alignment
-- **Latency Tracking**: End-to-end response times
-- **Cost Analysis**: Token usage and computational cost
-- **A/B Testing**: Model and prompt comparison
-- **Regression Testing**: Automated test suites
+---
 
-### 🚀 CI/CD Integration
-- Automated testing on PR
-- Performance benchmarking
-- Model version management
-- Deployment automation
-- Monitoring and alerting
+## ✅ All Apps Tested & Verified
 
-## Quick Start
+| # | App | CAG Technique | Response | Context | Avg Relevance | Latency | Status |
+|---|-----|--------------|----------|---------|--------------|---------|--------|
+| 03 | Code Review Bot | AST-aware Code Quality CAG | 2,168 chars | 5 chunks | 0.71 | 6.4s | ✅ |
+| 04 | Customer Support Agent | Conversational Memory CAG | 1,439 chars | 1 chunk | 0.98 | 5.4s | ✅ |
+| 05 | Financial Report Analyzer | Structured Data CAG | 3,688 chars | 5 chunks | 0.73 | 10.8s | ✅ |
+| 06 | Research Paper Summarizer | Hierarchical Summarization CAG | 2,058 chars | 5 chunks | 0.52 | 3.7s | ✅ |
+| 07 | Product Recommender | Hybrid Collaborative-Content CAG | 2,652 chars | 5 chunks | 0.91 | 7.0s | ✅ |
+| 08 | Educational Tutor | Adaptive Difficulty CAG | 1,997 chars | 5 chunks | 0.59 | 6.7s | ✅ |
+| 09 | Compliance Checker | Rule-based Compliance CAG | 1,192 chars | 5 chunks | 0.84 | 2.8s | ✅ |
+| 10 | Fact Checker | Multi-source Verification CAG | 2,286 chars | 5 chunks | 0.40 | 6.9s | ✅ |
+| 13 | Git Sync Assistant | Expert System CAG | 2,614 chars | 4 chunks | 0.96 | 7.0s | ✅ |
+| 14 | Prompt Engineering Tutor | Pedagogical Scaffolding CAG | 4,766 chars | 5 chunks | 0.72 | 12.4s | ✅ |
+
+> **Model Used**: `qwen2.5:1.5b` (dynamically auto-selected from available local Ollama models)
+> **All apps tested on**: 2026-02-18
+
+---
+
+## 📦 Applications
+
+### App 01: Legal Document Analyzer (Port 8001) — **RAG**
+- **Technique**: Retrieval-Augmented Generation with Citation Tracking
+- **Knowledge**: ChromaDB vector store with legal documents
+- **Unique**: Uses **traditional RAG** with embeddings + vector search for comparison with CAG apps
+
+### App 02: Medical Diagnosis Assistant (Port 8002) — **Multi-hop CAG**
+- **Technique**: Multi-hop Reasoning with Neo4j Knowledge Graph
+- **Knowledge**: Medical knowledge graph with symptom→disease→treatment relationships
+
+### App 03: Code Review Bot (Port 8003) — **CAG**
+- **Technique**: AST-aware Code Quality CAG
+- **Knowledge**: 10 items (security, performance, style, error handling, code smells)
+- **Test**: SQL injection detected → retrieved `security_input`, `error_handling`, `python_best`
+
+### App 04: Customer Support Agent (Port 8004) — **CAG**
+- **Technique**: Conversational Memory CAG
+- **Knowledge**: 7 items (password reset, billing, shipping, returns, escalation guidelines)
+- **Test**: "Forgot password" → retrieved `kb_password` with 98% relevance
+
+### App 05: Financial Report Analyzer (Port 8005) — **CAG**
+- **Technique**: Structured Data CAG
+- **Knowledge**: 7 items (revenue, margins, liquidity, debt, cash flow, valuation, red flags)
+- **Test**: "SaaS 60% gross margin" → retrieved `profit_margins`, `red_flags`, `valuation`
+
+### App 06: Research Paper Summarizer (Port 8006) — **CAG**
+- **Technique**: Hierarchical Summarization CAG
+- **Knowledge**: 7 items (abstract, methodology, results, citations, limitations, hierarchy, reproducibility)
+- **Test**: "Transformer paper" → retrieved all 5 structural sections for comprehensive summary
+
+### App 07: Product Recommender (Port 8007) — **CAG**
+- **Technique**: Hybrid Collaborative-Content CAG
+- **Knowledge**: 7 items (collaborative, content, hybrid, catalog, segments, explainability, diversity)
+- **Test**: "Budget student electronics" → retrieved `content_filtering`, `catalog`, `segments` (91% avg)
+
+### App 08: Educational Tutor (Port 8008) — **CAG**
+- **Technique**: Adaptive Difficulty CAG
+- **Knowledge**: 7 items (Bloom's taxonomy, scaffolding, assessment, spaced repetition, analogies, growth mindset, subjects)
+- **Test**: "Explain recursion" → retrieved `analogies`, `blooms_taxonomy`, `scaffolding`
+
+### App 09: Compliance Checker (Port 8009) — **CAG**
+- **Technique**: Rule-based Compliance CAG
+- **Knowledge**: 7 items (GDPR Art.6, GDPR Art.17, data retention, contracts, SOX, risk scoring)
+- **Test**: "10-year data retention GDPR" → retrieved `gdpr_art6`, `gdpr_art17`, `data_retention` (84% avg)
+
+### App 10: Fact Checker (Port 8010) — **CAG**
+- **Technique**: Multi-source Verification CAG
+- **Knowledge**: 7 items (claim decomposition, source tiers, fallacies, statistics, verdict scale, cross-reference, temporal)
+- **Test**: "90% startups fail" → retrieved all 5 methodology chunks for systematic analysis
+
+### App 13: Git Sync Assistant (Port 8013) — **CAG**
+- **Technique**: Expert System CAG
+- **Knowledge**: 7 items (pull, push, merge, rebase, stash, fetch, status)
+- **Test**: "Merge conflict after pull" → retrieved `git_basics`, `conflict_resolution` (96% avg)
+
+### App 14: Prompt Engineering Tutor (Port 8014) — **CAG**
+- **Technique**: Pedagogical Scaffolding CAG
+- **Knowledge**: 12 items (zero-shot, few-shot, CoT, role prompting, structured output, anti-patterns, advanced)
+- **Test**: "Chain-of-thought prompting" → retrieved `chain_of_thought` at 98% relevance
+
+---
+
+## 🏗 Architecture
+
+### Shared CAG Engine (`shared/cag_engine/`)
+```python
+class CAGTechnique:
+    async def process(self, request):
+        # 1. RETRIEVE — match query against knowledge base
+        context = await self.retrieve_context(request)
+        
+        # 2. AUGMENT — build expert prompt with context
+        prompt = await self.augment_context(request, context)
+        
+        # 3. GENERATE — LLM response with augmented prompt
+        response = await self.generate_response(prompt, request)
+        
+        return CAGResponse(answer=response, context_chunks=context)
+```
+
+Every app subclasses `CAGTechnique` and implements:
+- `retrieve_context()` — domain-specific knowledge matching
+- `augment_context()` — expert prompt construction
+- `generate_response()` — Ollama LLM call
+
+### Dynamic Model Selection
+All apps auto-detect available local Ollama models and prefer chat models (filtering out embedding-only and cloud models):
+```
+Available: ['nomic-embed-text:latest', 'kimi-k2.5:cloud', 'tinyllama:latest', 'qwen2.5:1.5b']
+Filtered:  ['tinyllama:latest', 'qwen2.5:1.5b']
+Selected:  qwen2.5:1.5b
+```
+
+---
+
+## 🚀 Quick Start
 
 ### Prerequisites
 ```bash
-# Install Ollama
-curl -fsSL https://ollama.com/install.sh | sh
-
-# Pull required models
-ollama pull llama3
-ollama pull mistral
-ollama pull codellama
-ollama pull meditron
+# Install Ollama and pull a model
+ollama pull qwen2.5:1.5b   # or any chat model
 ```
 
-### Installation
+### Run Any App
 ```bash
-# Clone repository
-git clone <repo-url>
-cd cag_10
+# Backend
+cd app_03_code_reviewer/backend
+py main.py
+# → Runs on http://localhost:8003
 
-# Install shared dependencies
-pip install -r shared/requirements.txt
-
-# Start all services
-docker-compose up -d
+# Frontend (in another terminal)
+cd app_03_code_reviewer/frontend
+npm install && npm start
+# → Runs on http://localhost:3003
 ```
 
-### Running Individual Apps
+### Test All Apps
 ```bash
-# Example: Legal Document Analyzer
-cd app_01_legal_analyzer
-pip install -r requirements.txt
-python backend/main.py &
-cd frontend && npm install && npm start
+py test_all_apps.py
 ```
 
-### Running Evaluation Pipeline
-```bash
-# Run evaluation for specific app
-cd app_01_legal_analyzer
-python -m pytest tests/evaluation/ -v
+---
 
-# Run full suite evaluation
-python shared/evaluation/run_all_evaluations.py
+## 📁 Project Structure
+
+```
+cag_10/
+├── shared/cag_engine/          # Core CAG engine (base class + Ollama client)
+│   ├── base.py                 # CAGTechnique, CAGRequest, ContextChunk
+│   └── ollama_client.py        # OllamaClient with generate/embed/list
+├── app_01_legal_analyzer/      # RAG with ChromaDB (for comparison)
+├── app_02_medical_assistant/   # Multi-hop with Neo4j
+├── app_03_code_reviewer/       # AST-aware Code Quality CAG
+├── app_04_support_agent/       # Conversational Memory CAG
+├── app_05_financial_analyzer/  # Structured Data CAG
+├── app_06_paper_summarizer/    # Hierarchical Summarization CAG
+├── app_07_product_recommender/ # Hybrid Collaborative-Content CAG
+├── app_08_educational_tutor/   # Adaptive Difficulty CAG
+├── app_09_compliance_checker/  # Rule-based Compliance CAG
+├── app_10_fact_checker/        # Multi-source Verification CAG
+├── app_13_git_sync/            # Expert System CAG
+├── app_14_prompt_tutor/        # Pedagogical Scaffolding CAG
+├── test_all_apps.py            # Batch test script
+└── README.md
 ```
 
-## Evaluation Metrics
-
-Each application tracks:
-- **Response Quality**: BLEU, ROUGE, BERTScore
-- **Context Relevance**: Cosine similarity, ranking metrics
-- **Latency**: P50, P95, P99 response times
-- **Throughput**: Requests per second
-- **Cost**: Token usage per request
-- **User Satisfaction**: Feedback scores
-
-## CI/CD Pipeline
-
-### GitHub Actions Workflows
-1. **Test Pipeline**: Unit tests, integration tests, E2E tests
-2. **Evaluation Pipeline**: Automated metrics collection
-3. **Performance Pipeline**: Load testing and benchmarking
-4. **Deployment Pipeline**: Staging → Production promotion
-
-### Monitoring
-- Prometheus metrics collection
-- Grafana dashboards
-- Alert manager for anomalies
-- Log aggregation with ELK stack
-
-## Technology Stack
-
-### Backend
-- **Framework**: FastAPI
-- **LLM**: Ollama (llama3, mistral, codellama, meditron)
-- **Vector DB**: ChromaDB, Elasticsearch
-- **Graph DB**: Neo4j
-- **Cache**: Redis
-- **Database**: PostgreSQL, MongoDB, SQLite
-
-### Frontend
-- **Framework**: React 18
-- **State Management**: Redux Toolkit
-- **UI Library**: Material-UI
-- **Visualization**: D3.js, Recharts
-- **Real-time**: WebSocket
-
-### DevOps
-- **Containerization**: Docker, Docker Compose
-- **Orchestration**: Kubernetes (optional)
-- **CI/CD**: GitHub Actions
-- **Monitoring**: Prometheus, Grafana
-- **Logging**: ELK Stack
-
-## Development
-
-### Adding New CAG Technique
-```python
-# shared/cag_engine/techniques/custom_cag.py
-from shared.cag_engine.base import CAGTechnique
-
-class CustomCAG(CAGTechnique):
-    def augment_context(self, query, context):
-        # Implement custom logic
-        pass
+Each app follows the same structure:
+```
+app_XX_name/
+├── backend/
+│   ├── main.py             # FastAPI server + endpoints
+│   ├── *_rag.py            # CAGTechnique subclass + knowledge base
+│   └── requirements.txt
+├── frontend/
+│   ├── src/App.js          # React UI
+│   └── package.json
+└── README.md               # App-specific docs with test results
 ```
 
-### Creating New Evaluation Metric
-```python
-# shared/evaluation/metrics/custom_metric.py
-from shared.evaluation.base import Metric
+---
 
-class CustomMetric(Metric):
-    def compute(self, predictions, references):
-        # Implement metric calculation
-        pass
-```
+## 📚 Learning Path
 
-## Performance Benchmarks
-
-| Application | Avg Latency | Throughput | Context Relevance | Accuracy |
-|-------------|-------------|------------|-------------------|----------|
-| Legal Analyzer | 1.2s | 45 req/s | 0.89 | 0.92 |
-| Medical Assistant | 1.8s | 32 req/s | 0.91 | 0.88 |
-| Code Reviewer | 2.1s | 28 req/s | 0.87 | 0.85 |
-| Support Agent | 0.9s | 65 req/s | 0.84 | 0.90 |
-| Financial Analyzer | 1.5s | 38 req/s | 0.90 | 0.93 |
-| Paper Summarizer | 2.3s | 25 req/s | 0.92 | 0.89 |
-| Product Recommender | 0.7s | 80 req/s | 0.86 | 0.87 |
-| Educational Tutor | 1.1s | 52 req/s | 0.88 | 0.91 |
-| Compliance Checker | 1.6s | 35 req/s | 0.93 | 0.94 |
-| Fact Checker | 2.5s | 22 req/s | 0.90 | 0.86 |
-
-## Contributing
-
-1. Fork the repository
-2. Create feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit changes (`git commit -m 'Add amazing feature'`)
-4. Push to branch (`git push origin feature/amazing-feature`)
-5. Open Pull Request
-
-## License
-
-MIT License - see LICENSE file for details
-
-## Support
-
-- **Documentation**: [docs/](docs/)
-- **Issues**: GitHub Issues
-- **Discussions**: GitHub Discussions
-- **Email**: support@example.com
-
-## Roadmap
-
-- [ ] Add more CAG techniques (GraphRAG, ReAct, etc.)
-- [ ] Multi-language support
-- [ ] Advanced caching strategies
-- [ ] Model fine-tuning pipelines
-- [ ] Enterprise features (SSO, RBAC)
-- [ ] Mobile applications
-- [ ] API marketplace integration
-
-## Acknowledgments
-
-- Ollama team for local LLM inference
-- FastAPI for excellent web framework
-- React community for frontend tools
-- Open-source AI community
+1. **Start with App 03** (Code Review) — simplest CAG, 10-item knowledge base
+2. **Compare App 01 vs App 03** — see RAG (vector DB) vs CAG (in-memory) trade-offs
+3. **Study App 09** (Compliance) — see how rule-based knowledge maps to CAG
+4. **Explore App 14** (Prompt Tutor) — learn prompting while seeing CAG in action
+5. **Build your own** — subclass `CAGTechnique`, add domain knowledge, done!

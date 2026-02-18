@@ -1,0 +1,83 @@
+{
+  "query": "Explain how recursion works in programming with an example",
+  "response": "Certainly! Recursion is a fundamental concept in computer science and programming where a function calls itself repeatedly until it reaches a base case that stops the recursion.\n\n### Understanding Recursion\n\nImagine you're playing a game of hide-and-seek, but instead of hiding under a blanket or behind furniture, you’re trying to solve a problem. In the process, you can break down each step into smaller problems and solve them by repeating the same steps until you reach the simplest scenario.\n\n### Base Case\nThe base case is the smallest problem that doesn’t need recursion anymore. It’s like finding your hiding spot or solving a simple puzzle first. For example:\n- In programming: if `n = 1`, then return `true`.\n- In logic: if `x = true` or `y = false`, stop.\n\n### Recursive Case\nIn the recursive case, you break down the problem into smaller versions of itself until it reaches the base case. It’s like dividing a cake into slices and cutting those slices again for each slice.\n\n**Example: Fibonacci Sequence**\n- **Base Case**: If `n` is 0 or 1, return `n`.\n- **Recursive Case**: For any other `n`, return `F(n - 1) + F(n - 2)`.\n\n### Practice Problem\n\nLet’s implement the recursive approach to calculate factorials (n! = n * (n-1)!).\n\n```python\ndef factorial_recursive(n):\n    # Base case: if n is 0 or 1, return 1\n    if n == 0 or n == 1:\n        return 1\n    \n    # Recursive case: call the function for n - 1 and multiply by n\n    return n * factorial_recursive(n - 1)\n\n# Example usage: Calculate 5!\nprint(factorial_recursive(5))  # Should output 120\n```\n\n### Explanation\n\n- **Base Case**: If `n` is 0 or 1, the function returns 1 because multiplying by 0 or 1 doesn’t change anything.\n  \n- **Recursive Case**: The function calls itself with a smaller number (`n - 1`) and multiplies it by `n`. This process continues until `n` reaches its base case.\n\nThis example illustrates how recursion breaks down complex problems into simpler ones, making the problem-solving process manageable.",
+  "context": [
+    {
+      "content": "Analogies & Examples: Connect new concepts to what students already know. Use concrete examples before abstract formulas. Multiple representations (visual, verbal, symbolic) aid understanding.",
+      "relevance": 0.93,
+      "source": "analogies"
+    },
+    {
+      "content": "Subject Areas: Mathematics (algebra, calculus, statistics), Science (physics, chemistry, biology), Programming (Python, algorithms, data structures), Language (grammar, writing).",
+      "relevance": 0.8300000000000001,
+      "source": "subjects"
+    },
+    {
+      "content": "Bloom's Taxonomy Levels: Remember → Understand → Apply → Analyze → Evaluate → Create. Adapt questions to match student's current level.",
+      "relevance": 0.4,
+      "source": "blooms_taxonomy"
+    },
+    {
+      "content": "Scaffolding: Break complex concepts into smaller, manageable steps. Provide hints before full answers. Gradually remove support as student demonstrates mastery.",
+      "relevance": 0.4,
+      "source": "scaffolding"
+    },
+    {
+      "content": "Formative Assessment: Use quick checks (multiple choice, fill-in-blank) to gauge understanding before moving on. Misconceptions caught early are easier to correct.",
+      "relevance": 0.4,
+      "source": "assessment"
+    }
+  ],
+  "metadata": {
+    "technique": "Adaptive Difficulty CAG",
+    "process_steps": [
+      {
+        "name": "retrieve_context",
+        "duration_ms": 0.0,
+        "status": "completed",
+        "details": {
+          "num_chunks": 5,
+          "avg_relevance": 0.592
+        }
+      },
+      {
+        "name": "augment_context",
+        "duration_ms": 0.0,
+        "status": "completed",
+        "details": {
+          "prompt_length": 1277
+        }
+      },
+      {
+        "name": "generate_response",
+        "duration_ms": 6706.240177154541,
+        "status": "completed",
+        "details": {
+          "token_usage": {
+            "prompt_tokens": 280,
+            "completion_tokens": 481,
+            "total": 761
+          },
+          "answer_length": 1997
+        }
+      }
+    ]
+  },
+  "process_steps": [
+    {
+      "step": "retrieve_context",
+      "description": "Retrieving relevant context",
+      "duration": 0.0
+    },
+    {
+      "step": "augment_context",
+      "description": "Augmenting query with context",
+      "duration": 0.0
+    },
+    {
+      "step": "generate_response",
+      "description": "Generating response with LLM",
+      "duration": 6706.240177154541
+    }
+  ]
+}
