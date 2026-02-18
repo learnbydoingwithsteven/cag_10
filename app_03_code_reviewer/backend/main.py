@@ -1,8 +1,6 @@
 """
-Code Review Bot Backend
-AST-based Context Augmentation
+Code Review Bot Backend - AST-aware Code Quality CAG
 """
-
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
@@ -12,6 +10,8 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..', 'shared'))
 
 from cag_engine.ollama_client import OllamaClient
+from cag_engine.base import CAGRequest
+from code_review_rag import CodeReviewCAG
 
 app = FastAPI(title="Code Review Bot API")
 
@@ -24,6 +24,7 @@ app.add_middleware(
 )
 
 ollama_client = OllamaClient(host="http://localhost:11434")
+reviewer = CodeReviewCAG(ollama_client)
 
 
 class QueryRequest(BaseModel):
@@ -43,44 +44,32 @@ class QueryResponse(BaseModel):
 async def root():
     return {
         "app": "Code Review Bot",
-        "technique": "AST-based Context Augmentation",
+        "technique": "AST-aware Code Quality CAG",
         "status": "running"
     }
 
 
 @app.post("/process", response_model=QueryResponse)
 async def process_query(request: QueryRequest):
-    """Process query using AST-based Context Augmentation"""
+    """Review code using AST-aware Code Quality CAG"""
     try:
-        # Simulate CAG processing
-        context = [
-            {"type": "context_item", "content": f"Context {i+1} for query", "relevance": 0.9 - i*0.1}
-            for i in range(request.top_k)
-        ]
-        
-        prompt = f"""You are a code review bot. Process the following query:
-
-Query: {request.query}
-
-Context:
-{chr(10).join([f"- {c['content']}" for c in context])}
-
-Provide a comprehensive response."""
-        
-        response, _ = await ollama_client.generate(prompt=prompt, model="codellama")
-        
-        process_steps = [
-            {"step": "context_retrieval", "description": "Retrieved relevant context"},
-            {"step": "augmentation", "description": "Augmented prompt with context"},
-            {"step": "generation", "description": "Generated response with LLM"}
-        ]
+        cag_request = CAGRequest(query=request.query, context_limit=request.top_k)
+        result = await reviewer.process(cag_request)
         
         return QueryResponse(
             query=request.query,
-            response=response,
-            context=context,
-            metadata={"model": "codellama", "technique": "AST-based Context Augmentation"},
-            process_steps=process_steps
+            response=result.answer,
+            context=[{
+                "content": c.content,
+                "relevance": c.relevance_score,
+                "source": c.source
+            } for c in result.context_chunks],
+            metadata=result.metadata,
+            process_steps=[{
+                "step": s.step_name,
+                "description": s.description,
+                "duration": s.duration_ms
+            } for s in reviewer.process_steps]
         )
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
