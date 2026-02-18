@@ -110,6 +110,11 @@ This project delivers **10 production-ready full-stack applications** demonstrat
 - ✅ Features: Conflict resolution advice, workflow optimization
 - ✅ Context: Git documentation and best practices
 
+#### App 14: Prompt Engineering Tutor (Port 8014)
+**CAG Technique**: Pedagogical Scaffolding CAG
+- ✅ Backend: Adaptive education with categorized knowledge base
+- ✅ Features: Before/after examples, practice exercises, quick questions
+- ✅ Knowledge: 12 items across techniques, best practices, anti-patterns, advanced
 
 ### 3. Infrastructure & DevOps
 
