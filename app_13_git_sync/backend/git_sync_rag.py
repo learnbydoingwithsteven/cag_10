@@ -13,7 +13,44 @@ from cag_engine.ollama_client import OllamaClient
 
 class GitSyncCAG(CAGTechnique):
     def __init__(self, ollama_client):
-        super().__init__("Git Sync Expert", {"model": "llama3"})
+        # Dynamic Model Selection - pick best available LOCAL chat model
+        try:
+            available_models = ollama_client.list_models()
+            
+            # Filter out embedding-only models and cloud-only models
+            embedding_keywords = ["embed", "nomic-embed", "bge", "e5"]
+            chat_models = [
+                m for m in available_models
+                if not any(kw in m.lower() for kw in embedding_keywords)
+                and ":cloud" not in m.lower()
+            ]
+            
+            print(f"Available chat models: {chat_models}")
+            
+            preferred_order = ["llama3", "qwen2.5", "qwen2", "mistral", "codellama", 
+                               "gemma", "llama2", "tinyllama", "phi"]
+            
+            selected_model = None
+            
+            for pref in preferred_order:
+                for m in chat_models:
+                    if pref in m.lower():
+                        selected_model = m
+                        break
+                if selected_model:
+                    break
+            
+            # Fallback: use first available chat model, or first model at all
+            if not selected_model:
+                selected_model = chat_models[0] if chat_models else (available_models[0] if available_models else "llama3")
+            
+            print(f"Git Sync Assistant selected model: {selected_model}")
+            ollama_client.model = selected_model
+        except Exception as e:
+            print(f"Warning: Could not list models, using default. Error: {e}")
+            selected_model = "llama3"
+
+        super().__init__("Git Sync Expert", {"model": selected_model})
         self.ollama_client = ollama_client
         self.knowledge_base = [
             {"content": "To synchronize your local repository with a remote repository, use `git pull origin <branch_name>` to fetch and merge changes.", "source": "git_basics", "relevance": 0.95},

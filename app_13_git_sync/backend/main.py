@@ -25,7 +25,7 @@ app.add_middleware(
 )
 
 # Initialize Client and CAG Technique
-ollama_client = OllamaClient(base_url="http://localhost:11434")
+ollama_client = OllamaClient(host="http://localhost:11434")
 git_expert = GitSyncCAG(ollama_client)
 
 class QueryRequest(BaseModel):
