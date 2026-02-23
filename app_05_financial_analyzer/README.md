@@ -36,6 +36,8 @@ How CAG can augment LLM analysis with **financial formulas, ratio benchmarks, an
 
 ## API Documentation
 
+![Financial Analyzer UI - Analysis](assets/ui_screenshot.png)
+
 ![Financial Report Analyzer API - Swagger Docs](assets/swagger_docs.png)
 
 ## Quick Start

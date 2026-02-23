@@ -26,6 +26,12 @@ How CAG provides **structured summarization guidelines** to ensure the LLM produ
 | Avg Relevance | 0.52 |
 | Generation Time | 3,744ms (fastest) |
 
+## API Documentation
+
+![Paper Summarizer UI - Analysis](assets/ui_screenshot.png)
+
+![Paper Summarizer API - Swagger Docs](assets/swagger_docs.png)
+
 ## Quick Start
 ```bash
 cd backend && py main.py    # Port 8006

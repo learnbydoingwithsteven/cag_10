@@ -303,6 +303,90 @@ services:
     networks:
       - cag_network
 
+  # App 15: Multi-Agent Strategy Debater
+  app_multi_agent_debater:
+    build:
+      context: ./app_15_multi_agent_debater/backend
+      dockerfile: Dockerfile
+    container_name: cag_multi_agent_debater
+    ports:
+      - "8015:8015"
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+    depends_on:
+      - ollama
+    volumes:
+      - ./app_15_multi_agent_debater/backend:/app
+    networks:
+      - cag_network
+
+  # App 16: Self-Reflective Code Generator
+  app_self_reflective_coder:
+    build:
+      context: ./app_16_self_reflective_coder/backend
+      dockerfile: Dockerfile
+    container_name: cag_self_reflective_coder
+    ports:
+      - "8016:8016"
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+    depends_on:
+      - ollama
+    volumes:
+      - ./app_16_self_reflective_coder/backend:/app
+    networks:
+      - cag_network
+
+  # App 17: Tree of Thoughts Problem Solver
+  app_tree_of_thoughts_solver:
+    build:
+      context: ./app_17_tree_of_thoughts_solver/backend
+      dockerfile: Dockerfile
+    container_name: cag_tree_of_thoughts_solver
+    ports:
+      - "8017:8017"
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+    depends_on:
+      - ollama
+    volumes:
+      - ./app_17_tree_of_thoughts_solver/backend:/app
+    networks:
+      - cag_network
+
+  # App 18: Dynamic Few-Shot Copywriter
+  app_dynamic_few_shot_writer:
+    build:
+      context: ./app_18_dynamic_few_shot_writer/backend
+      dockerfile: Dockerfile
+    container_name: cag_dynamic_few_shot_writer
+    ports:
+      - "8018:8018"
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+    depends_on:
+      - ollama
+    volumes:
+      - ./app_18_dynamic_few_shot_writer/backend:/app
+    networks:
+      - cag_network
+
+  # App 19: Temporal Market Forecaster
+  app_temporal_rag_forecaster:
+    build:
+      context: ./app_19_temporal_rag_forecaster/backend
+      dockerfile: Dockerfile
+    container_name: cag_temporal_rag_forecaster
+    ports:
+      - "8019:8019"
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+    depends_on:
+      - ollama
+    volumes:
+      - ./app_19_temporal_rag_forecaster/backend:/app
+    networks:
+      - cag_network
   # Prometheus for monitoring
   prometheus:
     image: prom/prometheus:latest

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Review Bot</title>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --bg: #0f172a;
+            --card: #1e293b;
+            --text: #f8fafc;
+            --text-secondary: #94a3b8;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+        }
+
+        h1 {
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background-color: var(--card);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        textarea {
+            width: 100%;
+            height: 150px;
+            background-color: #334155;
+            border: 1px solid #475569;
+            border-radius: 8px;
+            color: var(--text);
+            padding: 12px;
+            font-family: 'Consolas', monospace;
+            font-size: 14px;
+            margin-bottom: 16px;
+            resize: vertical;
+        }
+
+        button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background-color: #4f46e5;
+        }
+
+        button:disabled {
+            opacity: 0.7;
+            cursor: wait;
+        }
+
+        .response-area {
+            white-space: pre-wrap;
+            line-height: 1.6;
+        }
+
+        .context-item {
+            border: 1px solid #475569;
+            border-radius: 8px;
+            padding: 12px;
+            margin-top: 12px;
+            background-color: #334155;
+        }
+
+        .relevance {
+            display: inline-block;
+            background-color: var(--primary);
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            margin-top: 8px;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Code Review Bot</h1>
+        <div class="subtitle">AST-aware Code Quality CAG</div>
+
+        <div class="card">
+            <textarea id="queryInput" placeholder="Paste your code snippet here to review..."></textarea>
+            <button id="submitBtn" onclick="processQuery()">Review Code</button>
+        </div>
+
+        <div id="results" class="hidden">
+            <div class="card">
+                <h3 style="margin-top:0">Analysis</h3>
+                <div id="responseContent" class="response-area"></div>
+            </div>
+
+            <div class="card">
+                <h3 style="margin-top:0">Context Retrieved</h3>
+                <div id="contextList"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function processQuery() {
+            const query = document.getElementById('queryInput').value;
+            if (!query) return;
+
+            const btn = document.getElementById('submitBtn');
+            const results = document.getElementById('results');
+
+            btn.disabled = true;
+            btn.innerText = 'Processing...';
+            results.classList.add('hidden');
+
+            try {
+                const res = await fetch('http://localhost:8003/process', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ query: query, top_k: 5 })
+                });
+
+                const data = await res.json();
+
+                document.getElementById('responseContent').innerText = data.response;
+
+                const contextList = document.getElementById('contextList');
+                contextList.innerHTML = '';
+
+                data.context.forEach(ctx => {
+                    const div = document.createElement('div');
+                    div.className = 'context-item';
+                    div.innerHTML = `
+                        <div>${ctx.content}</div>
+                        <div class="relevance">Relevance: ${Math.round(ctx.relevance * 100)}%</div>
+                    `;
+                    contextList.appendChild(div);
+                });
+
+                results.classList.remove('hidden');
+            } catch (err) {
+                alert('Error connecting to backend: ' + err.message);
+            } finally {
+                btn.disabled = false;
+                btn.innerText = 'Review Code';
+            }
+        }
+
+        // Pre-fill query for demo
+        document.getElementById('queryInput').value = "def login(user): return db.execute('SELECT * FROM users WHERE user=' + user)";
+    </script>
+</body>
+
+</html>

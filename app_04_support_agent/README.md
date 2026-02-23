@@ -38,6 +38,8 @@ The CAG achieved **98% relevance** — it retrieved exactly the right procedure 
 
 ## API Documentation
 
+![Customer Support Agent UI - Processing](assets/ui_screenshot.png)
+
 ![Customer Support Agent API - Swagger Docs](assets/swagger_docs.png)
 
 ## Quick Start

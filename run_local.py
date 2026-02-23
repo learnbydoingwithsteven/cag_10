@@ -33,7 +33,12 @@ APPS = {
     "9": { "name": "app_09_compliance_checker", "port_backend": 8009, "port_frontend": 3009 },
     "10": { "name": "app_10_fact_checker", "port_backend": 8010, "port_frontend": 3010 },
     "11": { "name": "app_11_agentic_researcher", "port_backend": 8011, "port_frontend": 3011 },
-    "12": { "name": "app_12_graph_rag", "port_backend": 8012, "port_frontend": 3012 }
+    "12": { "name": "app_12_graph_rag", "port_backend": 8012, "port_frontend": 3012 },
+    "15": { "name": "app_15_multi_agent_debater", "port_backend": 8015, "port_frontend": 3015 },
+    "16": { "name": "app_16_self_reflective_coder", "port_backend": 8016, "port_frontend": 3016 },
+    "17": { "name": "app_17_tree_of_thoughts_solver", "port_backend": 8017, "port_frontend": 3017 },
+    "18": { "name": "app_18_dynamic_few_shot_writer", "port_backend": 8018, "port_frontend": 3018 },
+    "19": { "name": "app_19_temporal_rag_forecaster", "port_backend": 8019, "port_frontend": 3019 }
 }
 
 def install_dependencies(app_id):

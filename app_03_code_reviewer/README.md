@@ -42,6 +42,8 @@ The CAG correctly identified SQL injection risk and retrieved security + error h
 
 ## API Documentation
 
+![Code Review Bot UI - Analysis](assets/ui_screenshot.png)
+
 ![Code Review Bot API - Swagger Docs](assets/swagger_docs.webp)
 
 ## Quick Start
