@@ -1,0 +1,54 @@
+{
+  "query": "We have elevated 500 errors and login failures after a deployment. Outline the incident response plan.",
+  "response": "### Incident Report: Elevated Errors and Login Failures Post-Deployment\n\n**Incident Type:** System Performance Degradation - User Experience Issues\n\n**Severity Assessment:**\nWe have experienced a surge in 500 errors and login failures after a recent deployment. The severity is critical, as this correlates with poor user experience and potential data integrity issues.\n\n**First 15 Minutes:**\n\n- **Initial Alert:** \n  - Report the incident to all affected users via email, chatbot notifications, and social media.\n  - Notify relevant teams (ops, dev, support) immediately.\n  \n- **User Impact:**\n  - Log in errors are now occurring frequently, leading to frustration and decreased productivity.\n  - Users report slower response times on critical tasks.\n\n**Containment Options:**\n\n- **Rollback:** \n  - If a fresh deployment is confirmed as the cause, rollback the most recent changes first. Monitor for any unexpected issues that arise after reverting back to the previous version.\n  \n- **Traffic Shedding/Feature Flagging:**\n  - Temporarily disable new features or roll out feature flags in smaller increments to observe if they are causing the issue.\n\n**Diagnostics Next Steps:**\n\n- Triangulate incidents by:\n  - Comparing request cohorts from before and after the deployment.\n  - Analyzing release markers (if applicable) for any discrepancies.\n  - Examining database queries or auth behavior around login times.\n\n**Stakeholder Communications Plan:**\n\n- **Internal Updates:** \n  - Status: \"We are currently monitoring issues related to a recent deployment. Rollback process is underway.\"\n  - Impact: \"Users are experiencing increased errors and slower response times, potentially affecting productivity.\"\n  - Mitigation: \"Immediate rollback of the latest changes is being executed. Expected stabilization within X hours.\"\n  - Next Update: \"Please check your email for further updates.\"\n\n- **External Updates:** \n  - Avoid speculation on root cause.\n  - Provide factual information about observed issues and current status without speculating on potential causes.\n\n**Recovery and Follow-Up:**\n\n- Once the issue is contained, monitor error rates across multiple observation windows to ensure stability. This might take several days as stabilization occurs.\n  \n- **Postmortem Analysis:**\n  - Conduct a detailed analysis of what went wrong, focusing on user experience, system performance metrics, and code changes around deployment.\n  - Document lessons learned for future deployments.\n\n- **Continuous Improvement:**\n  - Implement new monitoring tools to prevent similar issues in the future.\n  - Establish a regular review process with all stakeholders to ensure no recurrence.",
+  "context": [
+    {
+      "source": "sev_triage",
+      "title": "Severity and Command",
+      "content": "Assign a single incident commander, define severity from user impact, and publish a timestamped incident channel. Avoid parallel command structures.",
+      "relevance": 1.0
+    },
+    {
+      "source": "containment",
+      "title": "Containment First",
+      "content": "If a fresh deployment correlates with elevated failures, prioritize rollback, traffic shedding, or feature-flag disablement before deep root-cause work.",
+      "relevance": 0.67
+    },
+    {
+      "source": "stabilization",
+      "title": "Stabilization",
+      "content": "Keep the incident open until error rate and user flows are stable across multiple observation windows. Capture decisions for the postmortem while details are fresh.",
+      "relevance": 0.33
+    },
+    {
+      "source": "diagnostics",
+      "title": "Diagnostic Sweep",
+      "content": "Triangulate incidents with errors, latency, and dependency health. Compare request cohorts, release markers, and auth or database behavior.",
+      "relevance": 0.22
+    },
+    {
+      "source": "stakeholder_comms",
+      "title": "Stakeholder Communications",
+      "content": "Internal updates should state impact, mitigation status, and next update time. External updates should be factual and avoid speculative root causes.",
+      "relevance": 0.11
+    }
+  ],
+  "metadata": {
+    "model": "qwen2.5:1.5b",
+    "technique": "Runbook-Guided Incident Response CAG"
+  },
+  "process_steps": [
+    {
+      "step": "runbook_retrieval",
+      "description": "Retrieved incident runbooks relevant to the failure pattern"
+    },
+    {
+      "step": "response_augmentation",
+      "description": "Structured the prompt around triage, containment, communication, and recovery"
+    },
+    {
+      "step": "incident_generation",
+      "description": "Generated a runbook-aligned incident action plan"
+    }
+  ]
+}

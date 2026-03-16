@@ -1,0 +1,25 @@
+{
+  "query": "Write marketing copy for a new AI-powered fitness app",
+  "response": "\"Unlock your true potential with our state-of-the-art AI, where every workout is personalized to reach you like never before. Sign up now for our 14-day free trial! See the difference in just days.\"\n\nThis copy maintains the tone and structure of the past example by using a similar format and language. It's direct, concise, and emphasizes the unique selling point (USP) of the app - its AI-powered personalization. The call to action is clear: sign up for free.",
+  "context": [
+    {
+      "type": "few_shot_example_Fitness",
+      "content": "Unleash your inner beast. Try our 30-day challenge and see real results.",
+      "relevance": 0.95
+    }
+  ],
+  "metadata": {
+    "model": "qwen2.5:1.5b",
+    "technique": "Dynamic Context Selection CAG"
+  },
+  "process_steps": [
+    {
+      "step": "dynamic_selection",
+      "description": "Selected few-shot example for category: Fitness"
+    },
+    {
+      "step": "generation",
+      "description": "Generated final copy using dynamic few-shot context"
+    }
+  ]
+}

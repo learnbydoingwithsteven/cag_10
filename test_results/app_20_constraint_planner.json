@@ -1,0 +1,54 @@
+{
+  "query": "Plan a 6-week launch for a B2B AI analytics product with 3 engineers and a $40k budget",
+  "response": "### 1. Launch Objective and Hard Constraints:\n\n**Objective:** To deliver a robust, feature-rich MVP of our B2B AI analytics product within six weeks with a budget of $40,000.\n\n**Constraints:**\n- **Budget**: $40,000 (total cost)\n- **Team Capacity**: 3 engineers\n- **Deadline**: End of Week 6\n\n### 2. Recommended 6-Week Plan by Week:\n\n#### Week 1:\n- **Goal:** Build MVP foundation\n- **Tasks:**\n  - **Engage with key stakeholders** to understand requirements and feedback.\n  - **Design the core features** based on initial stakeholder inputs, keeping a focus on functional completeness.\n  - **Create an initial prototype or wireframe** that can be iterated upon.\n\n#### Week 2:\n- **Goal:** Test MVP foundation\n- **Tasks:**\n  - Conduct **initial testing** with key stakeholders to identify and fix critical issues before proceeding further.\n  - Document findings from the first round of testing, focusing on fixing bugs and gathering feedback for future improvements.\n\n#### Week 3:\n- **Goal:** Develop additional core features\n- **Tasks:**\n  - Expand the MVP by adding essential features based on stakeholder feedback from Week 1 and testing results from Week 2.\n  - Ensure that these new features are thoroughly tested to validate they meet the requirements and solve real pain points.\n\n#### Week 4:\n- **Goal:** Enhance user experience\n- **Tasks:**\n  - Focus on improving user interface/UX (UI/UX) based on feedback from stakeholders and testing sessions from Weeks 1, 2, and 3.\n  - Add additional enhancements like analytics dashboards or more interactive reports.\n\n#### Week 5:\n- **Goal:** Finalize proof of value\n- **Tasks:**\n  - Conduct a final round of user acceptance testing (UAT) with key stakeholders to ensure the MVP meets their expectations.\n  - Address any remaining bugs and address outstanding issues from previous weeks. Document all feedback and planned changes for launch.\n\n#### Week 6:\n- **Goal:** Prepare for launch\n- **Tasks:**\n  - Create a comprehensive post-launch strategy, including customer support, onboarding materials, pricing model details, demo flow script, etc.\n  - Finalize the MVP documentation (user manuals, API docs), ensuring all stakeholders are comfortable with the features and understand how to use them effectively.\n\n### 3. Scope Cuts to Protect Quality:\n\n- **Foundation Phase:**\n  - Limit scope by focusing on core essential features that must be present in every iteration.\n  - Ensure critical path testing is done for each feature before moving on to new ones.\n\n- **Proof of Value Phase:**\n  - Reduce the number of demo points and optimize the sequence to focus on key-value metrics. For example, start with a single value proposition (e.g., \"see how our analytics can help you improve customer churn rate\") rather than multiple.\n  \n### 4. Launch Risks and Mitigations:\n\n- **Risk: Integration Defects**\n  - Reserve 15-20% of the timeline for integration issues to allow time for rework without major delays.\n\n- **Risk: Stakeholder Revisions**\n  - Implement a \"stakeholder review\" meeting every week where any changes or feedback can be discussed and incorporated into future MVP iterations. This ensures that all stakeholders are aligned before moving forward with features.\n\n### 5. Metrics to Watch on Launch Day:\n\n- **Key Performance Indicators (KPIs):** \n  - User Feedback: Collect user feedback through post-launch surveys, direct feedback from UAT sessions, and customer support interactions.\n  - Conversion Rates: Track the percentage of users who complete all required steps for a successful use case or purchase process.\n  - Net Promoter Score (NPS): Measure customer satisfaction by monitoring how many customers would recommend our product to others. Aim for an NPS score in the high single digits (70-80) as an indication of success.\n\n### Summary:\nThis plan ensures that we deliver a high-quality MVP within six weeks, focusing on critical path testing and user feedback at each step. By mitigating risks through scope management and proactive communication with stakeholders, we can maintain quality while meeting the budget and team capacity constraints effectively.",
+  "context": [
+    {
+      "source": "phased_delivery",
+      "title": "Three-Phase Delivery",
+      "content": "Use three phases for MVP planning: foundation, proof of value, and launch readiness. Each phase should have explicit deliverables and one accountable owner.",
+      "relevance": 1.0
+    },
+    {
+      "source": "constraint_triage",
+      "title": "Constraint Triage",
+      "content": "Freeze non-negotiables first: budget, deadline, team capacity, and success metric. If one constraint tightens, reduce scope before compressing quality gates.",
+      "relevance": 0.86
+    },
+    {
+      "source": "gtm_alignment",
+      "title": "Go-To-Market Alignment",
+      "content": "Strong launches run product, GTM, and customer readiness in parallel. Do not leave pricing, demo flow, or onboarding assets to the final week.",
+      "relevance": 0.57
+    },
+    {
+      "source": "risk_buffering",
+      "title": "Risk Buffering",
+      "content": "Reserve 15-20 percent of the timeline for integration defects, stakeholder rework, and dependency delays. Keep one fallback cutline that can be dropped safely.",
+      "relevance": 0.29
+    },
+    {
+      "source": "quality_gates",
+      "title": "Quality Gates",
+      "content": "Speed comes from fewer features, not fewer controls. Every MVP launch still needs critical-path testing, rollback steps, and launch-day instrumentation.",
+      "relevance": 0.29
+    }
+  ],
+  "metadata": {
+    "model": "qwen2.5:1.5b",
+    "technique": "Constraint-Satisfaction CAG"
+  },
+  "process_steps": [
+    {
+      "step": "constraint_retrieval",
+      "description": "Matched launch planning heuristics to the request constraints"
+    },
+    {
+      "step": "plan_augmentation",
+      "description": "Built a plan prompt with scope, GTM, and quality guidance"
+    },
+    {
+      "step": "plan_generation",
+      "description": "Generated a constraint-aware launch plan"
+    }
+  ]
+}

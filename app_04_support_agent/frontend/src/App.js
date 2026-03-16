@@ -51,17 +51,17 @@ function App() {
         <Chip label="CAG Application" color="primary" sx={{ mt: 1 }} />
       </Box>
 
-      <Paper elevation=3 sx={{ p: 4, mb: 3 }}>
+      <Paper elevation={3} sx={{ p: 4, mb: 3 }}>
         <TextField
           fullWidth
           multiline
-          rows=4
-          label="Enter Your Query"
-          placeholder="Type your question here..."
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          variant="outlined"
-          sx={{ mb: 2 }}
+          rows={4}
+        label="Enter Your Query"
+        placeholder="Type your question here..."
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        variant="outlined"
+        sx={{ mb: 2 }}
         />
         <Button
           variant="contained"
@@ -83,7 +83,7 @@ function App() {
 
       {result && (
         <>
-          <Paper elevation=2 sx={{ p: 3, mb: 3 }}>
+          <Paper elevation={2} sx={{ p: 3, mb: 3 }}>
             <Typography variant="h6" gutterBottom>
               Response
             </Typography>
@@ -92,7 +92,7 @@ function App() {
             </Typography>
           </Paper>
 
-          <Paper elevation=2 sx={{ p: 3, mb: 3 }}>
+          <Paper elevation={2} sx={{ p: 3, mb: 3 }}>
             <Typography variant="h6" gutterBottom>
               Context Used
             </Typography>
@@ -112,7 +112,7 @@ function App() {
             ))}
           </Paper>
 
-          <Paper elevation=1 sx={{ p: 2, bgcolor: '#fafafa' }}>
+          <Paper elevation={1} sx={{ p: 2, bgcolor: '#fafafa' }}>
             <Typography variant="caption" color="text.secondary">
               Model: {result.metadata.model} | Technique: {result.metadata.technique}
             </Typography>

@@ -13,6 +13,28 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..', 'shared'))
 
 from cag_engine.ollama_client import OllamaClient
 
+
+def select_best_model(ollama_client):
+    """Dynamic model selection - pick best available LOCAL chat model."""
+    try:
+        available_models = ollama_client.list_models()
+        embedding_keywords = ["embed", "nomic-embed", "bge", "e5"]
+        chat_models = [
+            m for m in available_models
+            if not any(kw in m.lower() for kw in embedding_keywords)
+            and ":cloud" not in m.lower()
+        ]
+        preferred = ["llama3", "qwen2.5", "qwen2", "mistral",
+                      "gemma", "llama2", "tinyllama", "phi"]
+        for pref in preferred:
+            for m in chat_models:
+                if pref in m.lower():
+                    return m
+        return chat_models[0] if chat_models else "llama3"
+    except Exception:
+        return "llama3"
+
+
 app = FastAPI(title="Tree of Thoughts Problem Solver API")
 
 app.add_middleware(
@@ -23,7 +45,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-ollama_client = OllamaClient(base_url="http://ollama:11434")
+ollama_client = OllamaClient(host="http://localhost:11434")
+selected_model = select_best_model(ollama_client)
+ollama_client.model = selected_model
+print(f"Tree of Thoughts Solver selected model: {selected_model}")
 
 class QueryRequest(BaseModel):
     query: str
@@ -53,26 +78,26 @@ async def process_query(request: QueryRequest):
         
         # Step 1: Brainstorming multiple approaches
         prompt_branch = f"You are a problem solver. Given the following problem, propose 3 distinctly different high-level approaches to solve it. Respond ONLY with a numbered list of the 3 approaches. Problem: {request.query}"
-        approaches = ollama_client.generate(prompt=prompt_branch, model="llama3")
+        approaches, _ = await ollama_client.generate(prompt=prompt_branch)
         process_steps.append({"step": "branching", "description": "Generated 3 possible approaches"})
         context.append({"type": "approaches", "content": approaches, "relevance": 0.8})
 
         # Step 2: Evaluating the approaches
         prompt_eval = f"Given the problem: '{request.query}', evaluate the merits and drawbacks of each approach proposed here:\n{approaches}\nIdentify the single best approach from the list."
-        evaluation = ollama_client.generate(prompt=prompt_eval, model="llama3")
+        evaluation, _ = await ollama_client.generate(prompt=prompt_eval)
         process_steps.append({"step": "evaluation", "description": "Evaluated generated approaches"})
         context.append({"type": "evaluation", "content": evaluation, "relevance": 0.9})
 
         # Step 3: Detailed execution of the best approach
         prompt_exec = f"Based on the evaluation:\n{evaluation}\nProvide the final, detailed, step-by-step solution to the problem: '{request.query}' using the best approach identified."
-        final_solution = ollama_client.generate(prompt=prompt_exec, model="llama3")
+        final_solution, _ = await ollama_client.generate(prompt=prompt_exec)
         process_steps.append({"step": "execution", "description": "Developed detailed final solution"})
 
         return QueryResponse(
             query=request.query,
             response=final_solution,
             context=context,
-            metadata={"model": "llama3", "technique": "Tree of Thoughts (ToT) CAG"},
+            metadata={"model": selected_model, "technique": "Tree of Thoughts (ToT) CAG"},
             process_steps=process_steps
         )
     except Exception as e:

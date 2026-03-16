@@ -16,17 +16,16 @@ How CAG equips the LLM with a **fact-checking methodology** — teaching it to d
 
 ## Test Results ✅
 
-**Query**: _"Fact check: 90% of startups fail in the first year"_
+**Query**: _Fact check: 90% of startups fail in the first year_
 
 | Metric | Value |
 |---|---|
-| Response Length | 2,286 chars |
-| Context Chunks | 5 (full methodology) |
-| Sources Retrieved | `claim_decomposition`, `source_tiers`, `logical_fallacies`, `statistics`, `verdict_scale` |
-| Avg Relevance | 0.40 (broad methodology retrieval) |
-| Generation Time | 6,858ms |
-
-The CAG retrieved the entire fact-checking methodology, enabling a structured analysis with claim decomposition and verdict.
+| Status | PASSED |
+| Response Length | 2262 chars |
+| Context Chunks | 5 |
+| Sources Retrieved | `claim_decomposition, source_tiers, logical_fallacies, statistics, verdict_scale` |
+| Avg Relevance | 0.40 |
+| Model | Auto-selected local model |
 
 ## API Documentation
 
@@ -37,3 +36,8 @@ The CAG retrieved the entire fact-checking methodology, enabling a structured an
 cd backend && py main.py    # Port 8010
 cd frontend && npm start    # Port 3010
 ```
+
+
+## Application Screenshot
+
+![Screenshot](./screenshot.png)

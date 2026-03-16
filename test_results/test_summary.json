@@ -1,0 +1,380 @@
+{
+  "test_date": "2026-03-13T21:58:44.587533",
+  "total_apps": 23,
+  "passed": 23,
+  "failed": 0,
+  "results": [
+    {
+      "app": "app_03_code_reviewer",
+      "port": 8003,
+      "technique": "AST-aware Code Quality CAG",
+      "status": "PASSED",
+      "query": "Review this Python code: def get_user(id): return db.execute(\"SELECT * FROM users WHERE id=\" + id)",
+      "response_length": 2469,
+      "context_chunks": 5,
+      "sources": [
+        "error_handling",
+        "smell_nesting",
+        "python_best",
+        "security_secrets",
+        "security_input"
+      ],
+      "avg_relevance": 0.71,
+      "response_preview": "### 1. **Summary**\nThe provided Python function `get_user(id)` is straightforward but lacks essential error handling and security practices, which are crucial for robust and secure applications.\n\n### "
+    },
+    {
+      "app": "app_04_support_agent",
+      "port": 8004,
+      "technique": "Conversational Memory CAG",
+      "status": "PASSED",
+      "query": "I can't login to my account, I forgot my password",
+      "response_length": 1621,
+      "context_chunks": 1,
+      "sources": [
+        "kb_password"
+      ],
+      "avg_relevance": 0.98,
+      "response_preview": "I understand it might be a frustrating situation! Let's try these steps together:\n\n1. **Check Your Email for Verification Code**: Sometimes, when your account is locked out or temporarily blocked due "
+    },
+    {
+      "app": "app_05_financial_analyzer",
+      "port": 8005,
+      "technique": "Structured Data CAG",
+      "status": "PASSED",
+      "query": "Analyze the profit margins for a SaaS company with 60% gross margin",
+      "response_length": 4138,
+      "context_chunks": 5,
+      "sources": [
+        "profit_margins",
+        "red_flags",
+        "valuation",
+        "revenue_analysis",
+        "liquidity"
+      ],
+      "avg_relevance": 0.73,
+      "response_preview": "### Analysis of Profit Margins for a SaaS Company with 60% Gross Margin\n\n#### 1. **Gross Margin:**\n   - **Current Level:** The company has achieved a gross margin of 60%, which is within the healthy r"
+    },
+    {
+      "app": "app_06_paper_summarizer",
+      "port": 8006,
+      "technique": "Hierarchical Summarization CAG",
+      "status": "PASSED",
+      "query": "Summarize a paper about transformer architecture and attention mechanisms",
+      "response_length": 851,
+      "context_chunks": 5,
+      "sources": [
+        "abstract_guide",
+        "methodology_guide",
+        "results_guide",
+        "citation_guide",
+        "limitations_guide"
+      ],
+      "avg_relevance": 0.52,
+      "response_preview": "Transformer Architecture Overview:\n- The Transformer model leverages self-attention mechanisms to enable effective sequence processing.\n- It consists of three main layers: an input embedding layer, a "
+    },
+    {
+      "app": "app_07_product_recommender",
+      "port": 8007,
+      "technique": "Hybrid Collaborative-Content CAG",
+      "status": "PASSED",
+      "query": "Recommend products for a budget-conscious college student who likes electronics",
+      "response_length": 2361,
+      "context_chunks": 5,
+      "sources": [
+        "content_filtering",
+        "explainability",
+        "catalog",
+        "segments",
+        "diversity"
+      ],
+      "avg_relevance": 0.91,
+      "response_preview": "Given the user's profile as a budget-conscious college student who enjoys electronics, here are three tailored product recommendations:\n\n1. **Samsung Galaxy Tab S7** - Category: Electronics, Brand: Sa"
+    },
+    {
+      "app": "app_08_educational_tutor",
+      "port": 8008,
+      "technique": "Adaptive Difficulty CAG",
+      "status": "PASSED",
+      "query": "Explain how recursion works in programming with an example",
+      "response_length": 2662,
+      "context_chunks": 5,
+      "sources": [
+        "analogies",
+        "subjects",
+        "blooms_taxonomy",
+        "scaffolding",
+        "assessment"
+      ],
+      "avg_relevance": 0.59,
+      "response_preview": "**Concept Explanation: Recursion**\n\nRecursion is a fundamental principle in computer science where a function calls itself repeatedly until it reaches a base case (a simple situation that doesn't requ"
+    },
+    {
+      "app": "app_09_compliance_checker",
+      "port": 8009,
+      "technique": "Rule-based Compliance CAG",
+      "status": "PASSED",
+      "query": "Check if our data retention policy of keeping user logs for 10 years is GDPR compliant",
+      "response_length": 2591,
+      "context_chunks": 5,
+      "sources": [
+        "gdpr_art6",
+        "gdpr_art17",
+        "data_retention",
+        "indemnification",
+        "force_majeure"
+      ],
+      "avg_relevance": 0.84,
+      "response_preview": "### Compliance Status: Partially Compliant\n\n#### Issues Found:\n1. **Retention Duration**\n   - **Risk Level**: High\n   - **Issue Description**: The retention period of 10 years is longer than the recom"
+    },
+    {
+      "app": "app_10_fact_checker",
+      "port": 8010,
+      "technique": "Multi-source Verification CAG",
+      "status": "PASSED",
+      "query": "Fact check: 90% of startups fail in the first year",
+      "response_length": 2262,
+      "context_chunks": 5,
+      "sources": [
+        "claim_decomposition",
+        "source_tiers",
+        "logical_fallacies",
+        "statistics",
+        "verdict_scale"
+      ],
+      "avg_relevance": 0.4,
+      "response_preview": "### Claim Decomposition\n\n**Sub-Claim 1: 90% of startups fail in the first year**\n\n1. **Causation**: The claim suggests that approximately 90% of new businesses fail within their first year.\n2. **Direc"
+    },
+    {
+      "app": "app_11_agentic_researcher",
+      "port": 8011,
+      "technique": "Agentic Research CAG",
+      "status": "PASSED",
+      "query": "What are the key differences between supervised and unsupervised learning?",
+      "response_length": 1928,
+      "context_chunks": 0,
+      "sources": [],
+      "avg_relevance": 0,
+      "response_preview": "### Key Differences Between Supervised and Unsupervised Learning\n\n**Supervised Learning:**\n- **Purpose:** Train models using labeled data where each input example has a correct output.\n- **Classificat"
+    },
+    {
+      "app": "app_12_graph_rag",
+      "port": 8012,
+      "technique": "Graph-based Knowledge Extraction CAG",
+      "status": "PASSED",
+      "query": "Albert Einstein developed the theory of relativity. He was born in Germany and later moved to the United States.",
+      "response_length": 258,
+      "context_chunks": 0,
+      "sources": [],
+      "avg_relevance": 0,
+      "response_preview": "[{\"subject\": \"Albert Einstein\", \"predicate\": \"developed the theory of relativity\", \"object\": \"\"}, {\"subject\": \"\", \"predicate\": \"was born in Germany\", \"object\": \"Entity1\"}, {\"subject\": \"Entity1\", \"pred"
+    },
+    {
+      "app": "app_13_git_sync",
+      "port": 8013,
+      "technique": "Expert System CAG",
+      "status": "PASSED",
+      "query": "I have a merge conflict after pulling from the remote branch, how do I resolve it?",
+      "response_length": 0,
+      "context_chunks": 0,
+      "sources": [],
+      "avg_relevance": 0,
+      "response_preview": ""
+    },
+    {
+      "app": "app_14_prompt_tutor",
+      "port": 8014,
+      "technique": "Pedagogical Scaffolding CAG",
+      "status": "PASSED",
+      "query": "Explain chain-of-thought prompting and when to use it",
+      "response_length": 0,
+      "context_chunks": 0,
+      "sources": [],
+      "avg_relevance": 0,
+      "response_preview": ""
+    },
+    {
+      "app": "app_15_multi_agent_debater",
+      "port": 8015,
+      "technique": "Multi-Agent Debate CAG",
+      "status": "PASSED",
+      "query": "Should a startup focus on growth or profitability first?",
+      "response_length": 3607,
+      "context_chunks": 3,
+      "sources": [
+        "optimist_perspective",
+        "pessimist_perspective",
+        "analyst_synthesis"
+      ],
+      "avg_relevance": 1.0,
+      "response_preview": "Starting a new venture is indeed an exhilarating yet daunting journey. Both growth and profitability are critical, but they must be approached with a thoughtful balance to ensure long-term success.\n\n*"
+    },
+    {
+      "app": "app_16_self_reflective_coder",
+      "port": 8016,
+      "technique": "Reflexion-based CAG",
+      "status": "PASSED",
+      "query": "Write a Python function to find the longest common subsequence of two strings",
+      "response_length": 1450,
+      "context_chunks": 3,
+      "sources": [
+        "initial_draft",
+        "critique",
+        "final_code"
+      ],
+      "avg_relevance": 0.93,
+      "response_preview": "The provided code is indeed a valid implementation of the Longest Common Subsequence (LCS) algorithm, efficiently computing the length of the LCS between two strings `str1` and `str2`. It uses dynamic"
+    },
+    {
+      "app": "app_17_tree_of_thoughts_solver",
+      "port": 8017,
+      "technique": "Tree of Thoughts (ToT) CAG",
+      "status": "PASSED",
+      "query": "How can a small business reduce operational costs while maintaining quality?",
+      "response_length": 4090,
+      "context_chunks": 2,
+      "sources": [
+        "approaches",
+        "evaluation"
+      ],
+      "avg_relevance": 0.85,
+      "response_preview": "To help a small business reduce operational costs while maintaining high-quality standards, consider implementing the following strategy:\n\n### 1. Enhancing Digital Transformation:\n**Step-by-Step Imple"
+    },
+    {
+      "app": "app_18_dynamic_few_shot_writer",
+      "port": 8018,
+      "technique": "Dynamic Context Selection CAG",
+      "status": "PASSED",
+      "query": "Write marketing copy for a new AI-powered fitness app",
+      "response_length": 462,
+      "context_chunks": 1,
+      "sources": [
+        "few_shot_example_Fitness"
+      ],
+      "avg_relevance": 0.95,
+      "response_preview": "\"Unlock your true potential with our state-of-the-art AI, where every workout is personalized to reach you like never before. Sign up now for our 14-day free trial! See the difference in just days.\"\n\n"
+    },
+    {
+      "app": "app_19_temporal_rag_forecaster",
+      "port": 8019,
+      "technique": "Temporal RAG CAG",
+      "status": "PASSED",
+      "query": "What is the likely next trend in the AI semiconductor market?",
+      "response_length": 3419,
+      "context_chunks": 4,
+      "sources": [
+        "historical_event",
+        "historical_event",
+        "historical_event",
+        "historical_event"
+      ],
+      "avg_relevance": 1.0,
+      "response_preview": "Analyzing the historical timeline of technological and financial developments provides a clear progression that aligns with the anticipated future trends in the AI semiconductor market. The sequence o"
+    },
+    {
+      "app": "app_20_constraint_planner",
+      "port": 8020,
+      "technique": "Constraint-Satisfaction CAG",
+      "status": "PASSED",
+      "query": "Plan a 6-week launch for a B2B AI analytics product with 3 engineers and a $40k budget",
+      "response_length": 4121,
+      "context_chunks": 5,
+      "sources": [
+        "phased_delivery",
+        "constraint_triage",
+        "gtm_alignment",
+        "risk_buffering",
+        "quality_gates"
+      ],
+      "avg_relevance": 0.6,
+      "response_preview": "### 1. Launch Objective and Hard Constraints:\n\n**Objective:** To deliver a robust, feature-rich MVP of our B2B AI analytics product within six weeks with a budget of $40,000.\n\n**Constraints:**\n- **Bud"
+    },
+    {
+      "app": "app_21_incident_commander",
+      "port": 8021,
+      "technique": "Runbook-Guided Incident Response CAG",
+      "status": "PASSED",
+      "query": "We have elevated 500 errors and login failures after a deployment. Outline the incident response plan.",
+      "response_length": 2676,
+      "context_chunks": 5,
+      "sources": [
+        "sev_triage",
+        "containment",
+        "stabilization",
+        "diagnostics",
+        "stakeholder_comms"
+      ],
+      "avg_relevance": 0.47,
+      "response_preview": "### Incident Report: Elevated Errors and Login Failures Post-Deployment\n\n**Incident Type:** System Performance Degradation - User Experience Issues\n\n**Severity Assessment:**\nWe have experienced a surg"
+    },
+    {
+      "app": "app_22_negotiation_coach",
+      "port": 8022,
+      "technique": "Strategy Playbook CAG",
+      "status": "PASSED",
+      "query": "Help me negotiate a one-year enterprise renewal with a procurement team demanding a 25% discount",
+      "response_length": 4749,
+      "context_chunks": 4,
+      "sources": [
+        "batna",
+        "anchoring",
+        "stakeholder_mapping",
+        "objection_handling"
+      ],
+      "avg_relevance": 0.62,
+      "response_preview": "### 1. Negotiation Diagnosis\n\n#### Current Situation:\nThe procurement team is pushing for a one-year enterprise renewal with a significant discount, likely driven by competitive pressure or strategic "
+    },
+    {
+      "app": "app_23_guardrail_redteam",
+      "port": 8023,
+      "technique": "Adversarial Evaluation CAG",
+      "status": "PASSED",
+      "query": "Red-team an AI customer-support bot for prompt injection and data leakage weaknesses",
+      "response_length": 3017,
+      "context_chunks": 4,
+      "sources": [
+        "prompt_injection",
+        "data_exfiltration",
+        "jailbreak_patterns",
+        "tool_boundaries"
+      ],
+      "avg_relevance": 0.5,
+      "response_preview": "### 1. **Highest-Risk Attack Vectors**\n\nThe highest-risk attack vectors identified for the production LLM system are:\n\n- **Prompt Injection (prompt\\_injection):** This involves probing whether the ass"
+    },
+    {
+      "app": "app_24_workflow_orchestrator",
+      "port": 8024,
+      "technique": "State Machine CAG",
+      "status": "PASSED",
+      "query": "Design an onboarding workflow for a fintech app that includes KYC checks and human escalation",
+      "response_length": 4825,
+      "context_chunks": 5,
+      "sources": [
+        "automation_boundaries",
+        "compliance_checkpoints",
+        "state_design",
+        "failure_recovery",
+        "metrics"
+      ],
+      "avg_relevance": 0.42,
+      "response_preview": "### 1. State Machine Overview\n\nThe onboarding workflow for a fintech app that includes KYC checks and human escalation will be designed using a state machine approach, which is highly efficient for ma"
+    },
+    {
+      "app": "app_25_scenario_simulator",
+      "port": 8025,
+      "technique": "Scenario Simulation CAG",
+      "status": "PASSED",
+      "query": "Simulate base, bull, and bear scenarios for an AI SaaS company entering the EU market",
+      "response_length": 5243,
+      "context_chunks": 5,
+      "sources": [
+        "scenario_frame",
+        "drivers",
+        "decision_rules",
+        "capital_allocation",
+        "leading_indicators"
+      ],
+      "avg_relevance": 0.33,
+      "response_preview": "### 1. Base Case\n\n**Scenario Name:** SOTA AI SaaS Company Entering the EU Market: Base Scenario\n\n**Key Drivers:**\n- **Demand:** Moderate growth with no significant market penetration.\n- **Pricing Powe"
+    }
+  ]
+}

@@ -108,3 +108,17 @@ curl -X POST http://localhost:8013/analyze \
 ```
 
 Response includes `response`, `context` (retrieved knowledge), `metadata`, and `process_steps`.
+## Test Results ✅
+
+**Query**: _I have a merge conflict after pulling from the remote branch_
+
+| Metric | Value |
+|---|---|
+| Status | PASSED |
+| Response Length | 2629 chars |
+| Context Chunks | 5 |
+| Sources Retrieved | `git_basics, git_workflow, git_pushing, conflict_resolution, git_fetch` |
+| Avg Relevance | 0.96 |
+| Model | Auto-selected local model |
+
+

@@ -16,20 +16,24 @@ How CAG can combine **collaborative filtering theory + content-based filtering +
 
 ## Test Results ✅
 
-**Query**: _"Recommend products for a budget-conscious college student who likes electronics"_
+**Query**: _Recommend products for a budget-conscious college student who likes electronics_
 
 | Metric | Value |
 |---|---|
-| Response Length | 2,652 chars |
+| Status | PASSED |
+| Response Length | 2361 chars |
 | Context Chunks | 5 |
-| Sources Retrieved | `content_filtering`, `explainability`, `catalog`, `segments`, `diversity` |
-| Avg Relevance | **0.91** (second highest) |
-| Generation Time | 7,027ms |
-
-The CAG correctly matched "budget" to `segments` and "electronics" to `catalog`, producing contextually relevant recommendations.
+| Sources Retrieved | `content_filtering, explainability, catalog, segments, diversity` |
+| Avg Relevance | 0.91 |
+| Model | Auto-selected local model |
 
 ## Quick Start
 ```bash
 cd backend && py main.py    # Port 8007
 cd frontend && npm start    # Port 3007
 ```
+
+
+## Application Screenshot
+
+![Screenshot](./screenshot.png)

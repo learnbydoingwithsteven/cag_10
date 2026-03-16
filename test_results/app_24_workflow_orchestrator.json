@@ -1,0 +1,54 @@
+{
+  "query": "Design an onboarding workflow for a fintech app that includes KYC checks and human escalation",
+  "response": "### 1. State Machine Overview\n\nThe onboarding workflow for a fintech app that includes KYC checks and human escalation will be designed using a state machine approach, which is highly efficient for managing complex interactions between different services or entities.\n\n**Workflow States:**\n\n- **KYC Check**: This is the initial stage where users must complete identity verification (KYC). Users initiate this step by providing required documents.\n  \n  - **Owner**: User\n  - **Trigger**: Clicking \"Onboard\" button on the app interface\n  \n  - **Exit Condition**: After successful KYC, flow moves to Human Review\n    \n- **Human Review**: Involves a human reviewer who checks the validity of the KYC information provided by users.\n  \n  - **Owner**: User\n  - **Trigger**: If there are discrepancies or missing documents during the KYC process\n  \n  - **Exit Condition**: Approved if all requirements are met, flow moves to Final Check\n    \n- **Final Check**: This final review is conducted by a human who verifies that everything required for onboarding has been completed.\n  \n  - **Owner**: User\n  - **Trigger**: If any part of the KYC process was not fully verified\n  \n  - **Exit Condition**: Approved if all checks pass, flow moves to Waiting for Activation\n    \n- **Waiting for Activation**: This state is reached when all checks have passed. The user waits in this state until they are ready or authorized.\n  \n  - **Owner**: User\n  - **Trigger**: Any action that requires approval before activation (e.g., depositing funds)\n    \n- **Activation**: Once the user meets all conditions, their account is activated and ready to receive funds.\n\n### 2. Each Step with Owner and Trigger\n\n**State: KYC Check**\n  \n  - **Owner**: User\n  - **Trigger**: Clicking \"Onboard\" button on app interface\n  \n  - **Exit Condition**: Approved if all requirements are met, flow moves to Human Review.\n  \n  - **Automation Boundaries**: Automated checks for document validity (e.g., photos or scanned documents).\n  \n**State: Human Review**\n  \n  - **Owner**: User\n  - **Trigger**: If there are discrepancies or missing documents during the KYC process\n  \n  - **Exit Condition**: Approved if all requirements are met, flow moves to Final Check.\n  \n  - **Automation Boundaries**: Manual review and validation of the provided information by a human.\n\n**State: Final Check**\n  \n  - **Owner**: User\n  - **Trigger**: If any part of the KYC process was not fully verified\n  \n  - **Exit Condition**: Approved if all checks pass, flow moves to Waiting for Activation.\n  \n  - **Automation Boundaries**: Automated verification that documents are complete and valid.\n\n**State: Waiting for Activation**\n  \n  - **Owner**: User\n  - **Trigger**: Any action that requires approval before activation (e.g., depositing funds)\n    \n  - **Exit Condition**: Approved if all conditions met, flow moves to Activation.\n  \n  - **Automation Boundaries**: Automated checks and approvals.\n\n**State: Activation**\n  \n  - **Owner**: System Admin\n  - **Trigger**: Upon successful completion of KYC and final checks\n  \n  - **Exit Condition**: User account activated, funds can be deposited or transferred.\n  \n  - **Automation Boundaries**: No further action required by the system.\n\n### 3. Automation vs Human Review Boundaries\n\n- **KYC Check and Final Check**: Automated checks are implemented for document validity and completeness to ensure quick onboarding without human intervention until all KYC requirements are met. Once approved, these steps transition to a manual review state.\n  \n- **Human Review**: This step involves a human reviewer who performs detailed verification of the information provided by users. It is triggered by any discrepancies or missing documents detected during the initial check phase.\n\n### 4. Failure Handling and Escalation\n\n**Failure Recovery Policies:**\n\n- For each state, there are defined retry policies and timeout behaviors to ensure that failures can be handled gracefully:\n  - **Retry Policy**: A system-wide policy ensures that failed steps (e.g., due to network issues) will be retried multiple times until success or a predefined number of retries is reached.\n  - **Timeout Behavior**: If the workflow in a state exceeds its timeout period, it automatically moves to the next higher level or triggers an escalation notification.\n\n- In case of any failure during this flow:\n  - **Dead-Letter Handling**: All failed states are tracked and managed through dead-letter queues so that they can be processed by system administrators. This ensures that failures do not block the entire workflow.\n  \n- Any exceptions or errors detected in the state transitions will trigger an escalation to a human review, ensuring that critical issues get resolved promptly.\n\n### 5. Metrics and SLA Recommendations\n\n**Metrics:**\n\n- **Volume**: Tracks the number of",
+  "context": [
+    {
+      "source": "automation_boundaries",
+      "title": "Automation Boundaries",
+      "content": "Automate deterministic checks and calculations. Route judgment-heavy, risky, or exception states to a human with clear SLAs.",
+      "relevance": 1.0
+    },
+    {
+      "source": "compliance_checkpoints",
+      "title": "Compliance Checkpoints",
+      "content": "Insert compliance checkpoints before activation or payout events. Capture evidence and reason codes for every hold, approval, or rejection.",
+      "relevance": 0.5
+    },
+    {
+      "source": "state_design",
+      "title": "State Design",
+      "content": "Model workflows as explicit states with entry conditions, exit conditions, and ownership. Hidden transitions create operational ambiguity.",
+      "relevance": 0.38
+    },
+    {
+      "source": "failure_recovery",
+      "title": "Failure Recovery",
+      "content": "Every orchestration should define retry policy, timeout behavior, and dead-letter handling. Do not bury failures inside background jobs.",
+      "relevance": 0.12
+    },
+    {
+      "source": "metrics",
+      "title": "Operational Metrics",
+      "content": "Track volume, conversion, SLA adherence, and exception rate at each state. Metrics should tell you where work stalls and why.",
+      "relevance": 0.12
+    }
+  ],
+  "metadata": {
+    "model": "qwen2.5:1.5b",
+    "technique": "State Machine CAG"
+  },
+  "process_steps": [
+    {
+      "step": "pattern_retrieval",
+      "description": "Retrieved orchestration patterns for the requested workflow"
+    },
+    {
+      "step": "workflow_augmentation",
+      "description": "Built a prompt around states, automation boundaries, failures, and metrics"
+    },
+    {
+      "step": "workflow_generation",
+      "description": "Generated a state-machine oriented workflow design"
+    }
+  ]
+}

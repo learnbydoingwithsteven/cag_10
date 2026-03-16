@@ -27,3 +27,22 @@ curl -X POST http://localhost:8011/research \
      -d '{"query": "Explain the history of the internet"}'
 ```
 Response includes `answer`, `steps` (log), and `critique`.
+## Test Results ✅
+
+**Query**: _What are the key differences between supervised and unsupervised learning?_
+
+| Metric | Value |
+|---|---|
+| Status | PASSED |
+| Response Length | 1928 chars |
+| Context Chunks | 0 |
+| Sources Retrieved | `None` |
+| Avg Relevance | 0.00 |
+| Model | Auto-selected local model |
+
+
+
+
+## Application Screenshot
+
+![Screenshot](./screenshot.png)

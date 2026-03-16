@@ -1,6 +1,6 @@
 {
   "query": "I can't login to my account, I forgot my password",
-  "response": "I'm really sorry to hear that you're having trouble logging in. Let's try to help you out together.\n\nFirst, are you sure you've entered your email address or phone number correctly? It should be exactly as it appears on record with us.\n\nNext, let's check if the password reset is set up properly for emails and mobile numbers we have on file. If not, we'll need to get that updated so it matches our records.\n\nIf everything seems correct there, but you're still unable to log in:\n\n1. **Try Resetting Your Password:**\n   - Go to your account settings.\n   - Look for \"Security\" or \"Two-Factor Authentication\" section.\n   - Click on \"Forgot your password?\". Follow the steps provided by our system.\n\n2. **If Email Verification is Not Working:**\n   - If you're unable to reset via email, try using a mobile number registered with us.\n   - Go back to the settings page and look for the \"Forgot your password?\" option again.\n   - If that doesn't work either, it might be due to an issue on our end. Contact Customer Support directly.\n\n3. **If You Can’t Reset via Email or Phone:**\n   - Unfortunately, we need to escalate this situation.\n   - Contact Customer Support immediately by clicking \"Contact Support\" option in the navigation bar or using the contact form provided.\n\nPlease let us know which step you’ve tried so far and any specific issues you encountered. We're here to help get your account back up and running as quickly as possible!",
+  "response": "I understand it might be a frustrating situation! Let's try these steps together:\n\n1. **Check Your Email for Verification Code**: Sometimes, when your account is locked out or temporarily blocked due to too many incorrect login attempts, you'll receive an email with a verification code. Please check your inbox and look for this message.\n\n2. **Verify Identity via Email OTP**: If you have the verification code from step 1, go ahead and enter it into the reset password process in Settings > Security. This will verify your identity and then allow you to proceed to resetting your password.\n\n3. **Reset Your Password**: Once logged into your account settings, click on the 'Forgot Password' option or follow through the link provided within the email verification message. You should be directed to a form where you can create a new password for your account.\n\n4. **Create and Confirm New Password**: Use this process to generate and confirm your new password. Make sure it’s strong enough according to our security policies, including being at least 8 characters long with an inclusion of letters, numbers, and special characters.\n\n5. **Verify Account Change**: After creating the new password, you will need to verify that the account has been successfully updated by logging in using your newly set password. This step is important for securing the changes we’ve made.\n\nIf after following these steps, you still can’t log into your account or if it's not working properly, please reach out to our customer support team through the contact form on our website. We’ll look at this again and see how we can help further.",
   "context": [
     {
       "content": "Password Reset: Guide user to Settings > Security > Reset Password. If locked out, verify identity via email OTP, then issue temporary password valid for 24h.",
@@ -13,7 +13,7 @@
     "process_steps": [
       {
         "name": "retrieve_context",
-        "duration_ms": 1.0313987731933594,
+        "duration_ms": 0.0,
         "status": "completed",
         "details": {
           "num_chunks": 1,
@@ -30,15 +30,15 @@
       },
       {
         "name": "generate_response",
-        "duration_ms": 5410.677671432495,
+        "duration_ms": 5107.844114303589,
         "status": "completed",
         "details": {
           "token_usage": {
             "prompt_tokens": 127,
-            "completion_tokens": 318,
-            "total": 445
+            "completion_tokens": 319,
+            "total": 446
           },
-          "answer_length": 1439
+          "answer_length": 1621
         }
       }
     ]
@@ -47,7 +47,7 @@
     {
       "step": "retrieve_context",
       "description": "Retrieving relevant context",
-      "duration": 1.0313987731933594
+      "duration": 0.0
     },
     {
       "step": "augment_context",
@@ -57,7 +57,7 @@
     {
       "step": "generate_response",
       "description": "Generating response with LLM",
-      "duration": 5410.677671432495
+      "duration": 5107.844114303589
     }
   ]
 }

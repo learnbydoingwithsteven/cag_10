@@ -31,6 +31,15 @@
     - [x] App 08: Educational Tutor <!-- id: 27 -->
     - [x] App 09: Compliance Checker <!-- id: 28 -->
     - [x] App 10: Fact Checker <!-- id: 29 -->
+    - [x] App 11: Agentic Researcher
+    - [x] App 12: Graph RAG
+    - [x] App 13: Git Sync Assistant
+    - [x] App 14: Prompt Tutor
+    - [x] App 15: Multi-Agent Debater
+    - [x] App 16: Self-Reflective Coder
+    - [x] App 17: Tree of Thoughts Solver
+    - [x] App 18: Dynamic Few-Shot Writer
+    - [x] App 19: Temporal RAG Forecaster
 
 - [x] Polishing Unified Dashboard <!-- id: 30 -->
     - [x] Fix Dashboard Frontend Dependencies <!-- id: 31 -->

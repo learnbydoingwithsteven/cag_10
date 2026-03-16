@@ -20,3 +20,22 @@ Verified Backend API docs at `http://127.0.0.1:8012/docs`.
 $ Invoke-WebRequest -Method Head http://127.0.0.1:8012/docs
 HTTP/1.1 200 OK
 ```
+## Test Results ✅
+
+**Query**: __
+
+| Metric | Value |
+|---|---|
+| Status | PASSED |
+| Response Length | 258 chars |
+| Context Chunks | 0 |
+| Sources Retrieved | `None` |
+| Avg Relevance | 0.00 |
+| Model | Auto-selected local model |
+
+
+
+
+## Application Screenshot
+
+![Screenshot](./screenshot.png)

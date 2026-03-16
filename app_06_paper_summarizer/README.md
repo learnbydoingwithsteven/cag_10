@@ -16,15 +16,16 @@ How CAG provides **structured summarization guidelines** to ensure the LLM produ
 
 ## Test Results ✅
 
-**Query**: _"Summarize a paper about transformer architecture and attention mechanisms"_
+**Query**: _Summarize a paper about transformer architecture and attention mechanisms_
 
 | Metric | Value |
 |---|---|
-| Response Length | 2,058 chars |
-| Context Chunks | 5 (all structure guides) |
-| Sources Retrieved | `abstract_guide`, `methodology_guide`, `results_guide`, `citation_guide`, `limitations_guide` |
+| Status | PASSED |
+| Response Length | 851 chars |
+| Context Chunks | 5 |
+| Sources Retrieved | `abstract_guide, methodology_guide, results_guide, citation_guide, limitations_guide` |
 | Avg Relevance | 0.52 |
-| Generation Time | 3,744ms (fastest) |
+| Model | Auto-selected local model |
 
 ## API Documentation
 
@@ -37,3 +38,8 @@ How CAG provides **structured summarization guidelines** to ensure the LLM produ
 cd backend && py main.py    # Port 8006
 cd frontend && npm start    # Port 3006
 ```
+
+
+## Application Screenshot
+
+![Screenshot](./screenshot.png)

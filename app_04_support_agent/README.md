@@ -24,17 +24,16 @@ How CAG uses a **customer support knowledge base** to provide accurate, empathet
 
 ## Test Results ✅
 
-**Query**: _"I can't login to my account, I forgot my password"_
+**Query**: _I can't login to my account, I forgot my password_
 
 | Metric | Value |
 |---|---|
-| Response Length | 1,439 chars |
-| Context Chunks | 1 (highly focused) |
+| Status | PASSED |
+| Response Length | 1621 chars |
+| Context Chunks | 1 |
 | Sources Retrieved | `kb_password` |
-| Avg Relevance | **0.98** (highest across all apps) |
-| Generation Time | 5,411ms |
-
-The CAG achieved **98% relevance** — it retrieved exactly the right procedure for the user's issue.
+| Avg Relevance | 0.98 |
+| Model | Auto-selected local model |
 
 ## API Documentation
 

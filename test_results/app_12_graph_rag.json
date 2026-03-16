@@ -1,0 +1,25 @@
+{
+  "result": {
+    "triples": [
+      {
+        "subject": "Albert Einstein",
+        "predicate": "developed the theory of relativity",
+        "object": ""
+      },
+      {
+        "subject": "",
+        "predicate": "was born in Germany",
+        "object": "Entity1"
+      },
+      {
+        "subject": "Entity1",
+        "predicate": "later moved to the United States",
+        "object": ""
+      }
+    ],
+    "graph_stats": {
+      "num_nodes": 3,
+      "num_edges": 3
+    }
+  }
+}

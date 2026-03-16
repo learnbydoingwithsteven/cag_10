@@ -13,6 +13,28 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..', 'shared'))
 
 from cag_engine.ollama_client import OllamaClient
 
+
+def select_best_model(ollama_client):
+    """Dynamic model selection - pick best available LOCAL chat model."""
+    try:
+        available_models = ollama_client.list_models()
+        embedding_keywords = ["embed", "nomic-embed", "bge", "e5"]
+        chat_models = [
+            m for m in available_models
+            if not any(kw in m.lower() for kw in embedding_keywords)
+            and ":cloud" not in m.lower()
+        ]
+        preferred = ["llama3", "qwen2.5", "qwen2", "mistral",
+                      "gemma", "llama2", "tinyllama", "phi"]
+        for pref in preferred:
+            for m in chat_models:
+                if pref in m.lower():
+                    return m
+        return chat_models[0] if chat_models else "llama3"
+    except Exception:
+        return "llama3"
+
+
 app = FastAPI(title="Dynamic Few-Shot Copywriter API")
 
 app.add_middleware(
@@ -23,7 +45,18 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-ollama_client = OllamaClient(base_url="http://ollama:11434")
+ollama_client = OllamaClient(host="http://localhost:11434")
+selected_model = select_best_model(ollama_client)
+ollama_client.model = selected_model
+print(f"Dynamic Few-Shot Writer selected model: {selected_model}")
+
+# Simulated database of past successful marketing copy
+PAST_COPY = [
+    {"type": "SaaS", "copy": "Stop wrestling with spreadsheets. Simplify your workflows with our automation tool today!"},
+    {"type": "Fitness", "copy": "Unleash your inner beast. Try our 30-day challenge and see real results."},
+    {"type": "Finance", "copy": "Stop throwing money away! Start investing today and watch your wealth grow with zero hidden fees."},
+    {"type": "Education", "copy": "Upskill on your schedule. Learn code from experts without breaking the bank."}
+]
 
 class QueryRequest(BaseModel):
     query: str
@@ -35,14 +68,6 @@ class QueryResponse(BaseModel):
     context: list
     metadata: dict
     process_steps: list
-
-# Simulated database of past successful marketing copy
-PAST_COPY = [
-    {"type": "SaaS", "copy": "Stop wrestling with spreadsheets. Simplify your workflows with our automation tool today!"},
-    {"type": "Fitness", "copy": "Unleash your inner beast. Try our 30-day challenge and see real results."},
-    {"type": "Finance", "copy": "Stop throwing money away! Start investing today and watch your wealth grow with zero hidden fees."},
-    {"type": "Education", "copy": "Upskill on your schedule. Learn code from experts without breaking the bank."}
-]
 
 @app.get("/")
 async def root():
@@ -59,10 +84,10 @@ async def process_query(request: QueryRequest):
         process_steps = []
         context = []
         
-        # 1. Selection Step: Use an LLM call to pick the best related example, or simply pass all if small.
-        # We will dynamically pick by having the LLM select the most relevant category.
+        # 1. Selection Step: Use an LLM call to pick the best related example
         prompt_select = f"Which of the following categories best matches this query '{request.query}'? Categories: SaaS, Fitness, Finance, Education. Return ONLY the category name."
-        category = ollama_client.generate(prompt=prompt_select, model="llama3").strip()
+        category, _ = await ollama_client.generate(prompt=prompt_select)
+        category = category.strip()
         
         selected_example = next((item for item in PAST_COPY if item["type"].lower() in category.lower()), PAST_COPY[0])
         
@@ -75,14 +100,14 @@ Use the tone and structure of this successful past example: '{selected_example['
 
 Request: {request.query}
 Copy:"""
-        final_copy = ollama_client.generate(prompt=prompt_gen, model="llama3")
+        final_copy, _ = await ollama_client.generate(prompt=prompt_gen)
         process_steps.append({"step": "generation", "description": "Generated final copy using dynamic few-shot context"})
 
         return QueryResponse(
             query=request.query,
             response=final_copy,
             context=context,
-            metadata={"model": "llama3", "technique": "Dynamic Context Selection CAG"},
+            metadata={"model": selected_model, "technique": "Dynamic Context Selection CAG"},
             process_steps=process_steps
         )
     except Exception as e:

@@ -13,6 +13,28 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..', 'shared'))
 
 from cag_engine.ollama_client import OllamaClient
 
+
+def select_best_model(ollama_client):
+    """Dynamic model selection - pick best available LOCAL chat model."""
+    try:
+        available_models = ollama_client.list_models()
+        embedding_keywords = ["embed", "nomic-embed", "bge", "e5"]
+        chat_models = [
+            m for m in available_models
+            if not any(kw in m.lower() for kw in embedding_keywords)
+            and ":cloud" not in m.lower()
+        ]
+        preferred = ["llama3", "qwen2.5", "qwen2", "mistral",
+                      "gemma", "llama2", "tinyllama", "phi"]
+        for pref in preferred:
+            for m in chat_models:
+                if pref in m.lower():
+                    return m
+        return chat_models[0] if chat_models else "llama3"
+    except Exception:
+        return "llama3"
+
+
 app = FastAPI(title="Temporal Market Forecaster API")
 
 app.add_middleware(
@@ -23,7 +45,18 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-ollama_client = OllamaClient(base_url="http://ollama:11434")
+ollama_client = OllamaClient(host="http://localhost:11434")
+selected_model = select_best_model(ollama_client)
+ollama_client.model = selected_model
+print(f"Temporal Forecaster selected model: {selected_model}")
+
+# Simulated database of temporally sensitive events
+EVENTS = [
+    {"date": "2023-01-10", "content": "Tech stocks slide as interest rate hike fears continue."},
+    {"date": "2023-06-15", "content": "AI boom drives Nasdaq to 52-week highs."},
+    {"date": "2023-11-01", "content": "Fed signals pause on rate hikes, market rallies."},
+    {"date": "2024-02-20", "content": "Semiconductor earnings beat expectations, driving further AI speculation."}
+]
 
 class QueryRequest(BaseModel):
     query: str
@@ -35,14 +68,6 @@ class QueryResponse(BaseModel):
     context: list
     metadata: dict
     process_steps: list
-
-# Simulated database of temporally sensitive events
-EVENTS = [
-    {"date": "2023-01-10", "content": "Tech stocks slide as interest rate hike fears continue."},
-    {"date": "2023-06-15", "content": "AI boom drives Nasdaq to 52-week highs."},
-    {"date": "2023-11-01", "content": "Fed signals pause on rate hikes, market rallies."},
-    {"date": "2024-02-20", "content": "Semiconductor earnings beat expectations, driving further AI speculation."}
-]
 
 @app.get("/")
 async def root():
@@ -60,7 +85,6 @@ async def process_query(request: QueryRequest):
         context = []
         
         # 1. Temporal Sorting/Retrieval Step
-        # Sort events by date natively so the LLM sees the chronological timeline
         sorted_events = sorted(EVENTS, key=lambda x: x["date"])
         
         formatted_timeline = "\n".join([f"[{e['date']}] {e['content']}" for e in sorted_events])
@@ -79,14 +103,14 @@ Historical Timeline:
 
 Forecast Analysis:"""
         
-        forecast = ollama_client.generate(prompt=prompt_gen, model="llama3")
+        forecast, _ = await ollama_client.generate(prompt=prompt_gen)
         process_steps.append({"step": "temporal_generation", "description": "Generated forecast from chronological timeline"})
 
         return QueryResponse(
             query=request.query,
             response=forecast,
             context=context,
-            metadata={"model": "llama3", "technique": "Temporal RAG CAG"},
+            metadata={"model": selected_model, "technique": "Temporal RAG CAG"},
             process_steps=process_steps
         )
     except Exception as e:

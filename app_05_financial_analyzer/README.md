@@ -24,15 +24,16 @@ How CAG can augment LLM analysis with **financial formulas, ratio benchmarks, an
 
 ## Test Results ✅
 
-**Query**: _"Analyze the profit margins for a SaaS company with 60% gross margin"_
+**Query**: _Analyze the profit margins for a SaaS company with 60% gross margin_
 
 | Metric | Value |
 |---|---|
-| Response Length | 3,688 chars (most detailed) |
+| Status | PASSED |
+| Response Length | 4138 chars |
 | Context Chunks | 5 |
-| Sources Retrieved | `profit_margins`, `red_flags`, `valuation`, `revenue_analysis`, `liquidity` |
+| Sources Retrieved | `profit_margins, red_flags, valuation, revenue_analysis, liquidity` |
 | Avg Relevance | 0.73 |
-| Generation Time | 10,833ms |
+| Model | Auto-selected local model |
 
 ## API Documentation
 
@@ -45,3 +46,8 @@ How CAG can augment LLM analysis with **financial formulas, ratio benchmarks, an
 cd backend && py main.py    # Port 8005
 cd frontend && npm start    # Port 3005
 ```
+
+
+## Application Screenshot
+
+![Screenshot](./screenshot.png)

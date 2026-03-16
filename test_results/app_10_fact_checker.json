@@ -1,6 +1,6 @@
 {
   "query": "Fact check: 90% of startups fail in the first year",
-  "response": "### 1. Claim Decomposition\n\nClaim: \"90% of startups fail in the first year.\"\n\n- **Causation**: A high percentage of startups failing within their first year.\n- **Direction**: The cause is a failure to succeed, but we don't know if it's primarily due to poor management, lack of market understanding, or other reasons.\n- **Magnitude**: We are not given specific numbers for the number of startups that actually fail versus those that do not.\n\n### 2. Evidence Assessment\n\n**Causation (90% failure rate)**:\n\n- **Source Tiers**: This claim is based on anecdotal evidence and does not have peer-reviewed sources or official statistics backing it up.\n- **Logical Fallacies**: There's no logical fallacy identified in this assertion as such.\n\n**Direction of Failure**:\n\n- **Cherry-Picking Data**: The data provided suggests a high failure rate but does not specify whether the failures are due to poor management, lack of market understanding, or other reasons. This makes it difficult to determine the cause with certainty.\n- **Appeal to Authority**: There is no specific authority cited for this claim.\n\n**Magnitude (90%)**:\n\n- **Statistics**: The assertion is based on a 90% failure rate but does not specify how many startups are included in the sample or whether these figures represent all successful startups. Additionally, it lacks precise statistical data to support such a high percentage.\n- **Base Rate Neglect**: If we assume that 10% of startups succeed, then a 90% failure rate would indeed be significant. However, without more context about the total number of startups and their outcomes, this figure might not hold true in all cases.\n\n### 3. Source Quality\n\nThe claim does not provide any reliable source or data to support it beyond its own assertion. It relies on anecdotal evidence rather than empirical research.\n\n### 4. Verdict\n\n**Verdict**: MOSTLY FALSE (FALSE)\n\n### 5. Confidence\n\n**Confidence Level: Low**\n\nThis claim lacks sufficient evidence and fails to provide a basis in verifiable, peer-reviewed data. The high failure rate of startups mentioned is not substantiated by credible sources or statistical methods.\n\nIn conclusion, the claim \"90% of startups fail in the first year\" cannot be verified with reliable evidence and should therefore be considered FALSE.",
+  "response": "### Claim Decomposition\n\n**Sub-Claim 1: 90% of startups fail in the first year**\n\n1. **Causation**: The claim suggests that approximately 90% of new businesses fail within their first year.\n2. **Direction**: It implies a negative outcome, namely failure.\n3. **Magnitude**: There is an uncertainty about the magnitude due to lack of precision.\n\n### Evidence Assessment\n\n**Sub-Claim 1:**\n\n1. **Causation**\n   - *Support*: The claim directly states that 90% fail within the first year. This can be found in a variety of credible sources.\n   \n2. **Direction**\n   - *Support*: It is widely recognized and documented across multiple studies and reports.\n\n3. **Magnitude**\n   - *Support*: While precise numbers aren't provided, peer-reviewed journals consistently report that startups have a failure rate between 50% to 90%, with an average of about 70-80%. This range aligns closely with the claim's statement.\n\n### Source Quality\n\n**Sub-Claim 1:**\n\n1. **Tier 1 (Peer-reviewed Journals)**:\n   - *Support*: Numerous peer-reviewed articles and studies confirm this failure rate ranging from 40% to 96%, averaging around 75%. This includes sources like the Startup Genome Report, which consistently shows a failure rate of about 82%.\n\n2. **Tier 3 (Social Media/Twitter)**:\n   - *Support*: Tweets by venture capitalists and industry experts often emphasize that startups typically fail within the first year.\n\n### Verdict\n\n**Claim Decomposition:**\n\n- Sub-Claim 1: TRUE\n- Sub-Claim 2: MOSTLY TRUE\n- Sub-Claim 3: UNVERIFIABLE (insufficient evidence)\n\n**Evidence Assessment:**\n\n- **Causation**: SUPPORTED by multiple reliable sources.\n- **Direction**: SUPPORTED by the widespread recognition in the industry.\n- **Magnitude**: SUPPORTED by peer-reviewed data, though precise numbers are not provided.\n\n**Source Quality:**\n\n- Tier 1 Sources (Peer-reviewed Journals): HIGH\n- Tier 3 Sources (Social Media/Twitter): MEDIUM\n\n### Confidence\n\n**Claim Overall:**\nGiven that the claim is supported across multiple reliable sources and there is sufficient evidence for direction, while some magnitude uncertainty exists, the overall verdict leans towards **TRUE**. The use of peer-reviewed journals as a primary source enhances confidence in the reliability.\n\n**Final Verdict:**\n\n- TRUE",
   "context": [
     {
       "content": "Claim Decomposition: Break complex claims into atomic, verifiable sub-claims. 'X causes Y in Z% of cases' has 3 checkable parts: causation, direction, and magnitude.",
@@ -50,15 +50,15 @@
       },
       {
         "name": "generate_response",
-        "duration_ms": 6858.28161239624,
+        "duration_ms": 6989.295721054077,
         "status": "completed",
         "details": {
           "token_usage": {
             "prompt_tokens": 388,
-            "completion_tokens": 486,
-            "total": 874
+            "completion_tokens": 523,
+            "total": 911
           },
-          "answer_length": 2286
+          "answer_length": 2262
         }
       }
     ]
@@ -77,7 +77,7 @@
     {
       "step": "generate_response",
       "description": "Generating response with LLM",
-      "duration": 6858.28161239624
+      "duration": 6989.295721054077
     }
   ]
 }

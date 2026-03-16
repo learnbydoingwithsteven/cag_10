@@ -102,3 +102,17 @@ curl -X POST http://localhost:8014/learn \
 ```
 
 Response includes `response`, `context` (knowledge sources), `metadata`, and `process_steps`.
+## Test Results ✅
+
+**Query**: _Explain chain-of-thought prompting and when to use it_
+
+| Metric | Value |
+|---|---|
+| Status | PASSED |
+| Response Length | 1638 chars |
+| Context Chunks | 5 |
+| Sources Retrieved | `few_shot, chain_of_thought, zero_shot, role_prompting, structured_output` |
+| Avg Relevance | 0.84 |
+| Model | Auto-selected local model |
+
+

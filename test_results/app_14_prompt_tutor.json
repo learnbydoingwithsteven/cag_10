@@ -1,0 +1,83 @@
+{
+  "query": "Explain chain-of-thought prompting and when to use it",
+  "response": "# Chain-Of-Thought Prompting Explained\n\n## What is Chain-of-Thought (CoT) Promoting?\n\nChain-of-Thought (CoT) prompting involves guiding the model to think through problems step-by-step, from beginning to end. This technique helps improve the clarity and correctness of responses by demonstrating reasoning.\n\n### Why Use CoT Prompts?\n\n1. **Clarity**: It makes it easy for humans to understand exactly what a model is doing.\n2. **Correctness**: The steps help the model verify its logic before producing an answer, reducing errors.\n3. **Generalization**: By breaking down complex problems into smaller steps, the model can handle more scenarios and similar tasks.\n\n### Example of Chain-of-Thought Prompting\n\n**Before (Bad) Example:**\n```plaintext\nWhat is 7 * 5?\n```\n\n**After (Good) Example:**\n```plaintext\nLet's think step by step:\n1. Multiply 7 by 5 directly.\n2. We get 35.\nTherefore, the answer is 35.\n\nIs this approach correct? Yes or No?\n```\n\n### Practice Exercise: Chain-of-Thought Prompting\n\n**Scenario**: You need to find the sum of all prime numbers between 10 and 20. Use chain-of-thought prompting to explain your reasoning.\n\n```plaintext\nLet's think step by step:\n1. Identify which numbers are prime.\n   - Prime numbers are divisible only by 1 and themselves.\n   - The numbers in this range: 11, 13, 17, 19\n\n2. Calculate the sum of these prime numbers.\n   - Sum = 11 + 13 + 17 + 19\n   - Sum = 60\n\nTherefore, the sum of all prime numbers between 10 and 20 is **60**.\n\nIs this approach correct? Yes or No?\n```\n\nBy practicing with chain-of-thought prompts like these, you can enhance your model's understanding and reasoning skills.",
+  "context": [
+    {
+      "content": "Few-shot prompting: Provide 2-5 examples before the actual task. This helps the model understand the pattern and desired output format. Always keep examples consistent in format.",
+      "relevance": 0.98,
+      "source": "few_shot"
+    },
+    {
+      "content": "Chain-of-Thought (CoT): Add 'Let's think step by step' or provide reasoning examples. This dramatically improves performance on math, logic, and multi-step problems.",
+      "relevance": 0.98,
+      "source": "chain_of_thought"
+    },
+    {
+      "content": "Zero-shot prompting: Give the model a task with no examples. Works well for simple, well-defined tasks. Example: 'Classify the following text as positive or negative: ...'",
+      "relevance": 0.93,
+      "source": "zero_shot"
+    },
+    {
+      "content": "Role prompting: Start with 'You are a [role]' to set context and expertise level. Example: 'You are a senior Python developer. Review this code for security issues.'",
+      "relevance": 0.93,
+      "source": "role_prompting"
+    },
+    {
+      "content": "Structured output: Request specific formats like JSON, markdown tables, or bullet points. Include a schema or example of desired output structure.",
+      "relevance": 0.4,
+      "source": "structured_output"
+    }
+  ],
+  "metadata": {
+    "technique": "Prompt Engineering Tutor",
+    "process_steps": [
+      {
+        "name": "retrieve_context",
+        "duration_ms": 0.0,
+        "status": "completed",
+        "details": {
+          "num_chunks": 5,
+          "avg_relevance": 0.844
+        }
+      },
+      {
+        "name": "augment_context",
+        "duration_ms": 0.0,
+        "status": "completed",
+        "details": {
+          "prompt_length": 1491
+        }
+      },
+      {
+        "name": "generate_response",
+        "duration_ms": 6042.006492614746,
+        "status": "completed",
+        "details": {
+          "token_usage": {
+            "prompt_tokens": 348,
+            "completion_tokens": 421,
+            "total": 769
+          },
+          "answer_length": 1638
+        }
+      }
+    ]
+  },
+  "process_steps": [
+    {
+      "step": "retrieve_context",
+      "description": "Retrieving relevant context",
+      "duration": 0.0
+    },
+    {
+      "step": "augment_context",
+      "description": "Augmenting query with context",
+      "duration": 0.0
+    },
+    {
+      "step": "generate_response",
+      "description": "Generating response with LLM",
+      "duration": 6042.006492614746
+    }
+  ]
+}

@@ -16,17 +16,16 @@ How CAG uses **pedagogy frameworks** (Bloom's Taxonomy, scaffolding, spaced repe
 
 ## Test Results ✅
 
-**Query**: _"Explain how recursion works in programming with an example"_
+**Query**: _Explain how recursion works in programming with an example_
 
 | Metric | Value |
 |---|---|
-| Response Length | 1,997 chars |
+| Status | PASSED |
+| Response Length | 2662 chars |
 | Context Chunks | 5 |
-| Sources Retrieved | `analogies`, `subjects`, `blooms_taxonomy`, `scaffolding`, `assessment` |
+| Sources Retrieved | `analogies, subjects, blooms_taxonomy, scaffolding, assessment` |
 | Avg Relevance | 0.59 |
-| Generation Time | 6,706ms |
-
-The CAG retrieved pedagogy guidelines to structure the response: concept → analogy → example → practice.
+| Model | Auto-selected local model |
 
 ## Quick Start
 ```bash

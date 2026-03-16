@@ -1,0 +1,48 @@
+{
+  "query": "Help me negotiate a one-year enterprise renewal with a procurement team demanding a 25% discount",
+  "response": "### 1. Negotiation Diagnosis\n\n#### Current Situation:\nThe procurement team is pushing for a one-year enterprise renewal with a significant discount, likely driven by competitive pressure or strategic importance to the company.\n\n#### Key Drivers:\n- **Procurement:** Look for leverage points such as negotiation theater and competitive pricing.\n- **Champions/Executives:** Ensure continuity of support and alignment on long-term goals.\n- **Legal:** Seek reduced risk in case of future disputes.\n- **Customer Base:** Maintain good relationships with the customer base to mitigate churn risk.\n\n#### Priorities:\n1. **Price Discount:**\n   - The procurement team is highly motivated, so a significant discount will likely be negotiated.\n2. **Non-price Levers:**\n   - Continuity (legal and champions)\n   - Value transfer (champions)\n   - Risk mitigation (legal)\n\n### 2. Recommended Anchor and Value Framing\n\n#### Commercial Anchor:\n- The procurement team is looking for leverage in the negotiation theater, so an anchor should be set around business value rather than price.\n\n#### Value Frame:\n- **Business Value:**\n  - Align on how the renewal adds to overall business objectives.\n  - Highlight specific strategic benefits or cost savings not already covered by existing contracts (e.g., new features, improved security).\n  \n- **Risk Transfer:**\n  - Discuss how the company can mitigate future risks related to contract terms and compliance.\n  - If there’s a clause on non-renewal penalties for reasons other than financial strain, frame it as an opportunity to improve conditions.\n\n#### Example:\n- Procurement mentions they are looking at reducing vendor risk. Frame this by stating: \"I understand the procurement is concerned about vendor risk; we can discuss our commitment to compliance and how this aligns with your organization's policies.\"\n\n### 3. Concession Ladder\n\n#### First Round:\n1. **Negotiation Theater (Procurement):**\n   - Offer a small discount in recognition of their leverage.\n     * Example: \"We'd be happy to offer you a 5% discount, which would cover the majority of your concerns.\"\n2. **Second Round:**\n   - Continue with business value and risk mitigation.\n     * Example: \"Let's extend that commitment to four years instead of one year, aligning it more closely with our overall business strategy.\"\n\n#### Third Round:\n3. **Non-price Levers (Legal & Champions):**\n   - Discuss continuity and renewals in a way that addresses their concerns.\n     * Example: \"We can provide additional training resources for champions who need them to help maintain focus on key projects.\"\n4. **Fourth Round:**\n   - Address legal risk and ensure continuity.\n     * Example: \"Legal reassures me that our contract terms are robust, including provisions for future renewals under similar conditions.\"\n\n### 4. Talk Track for the Next Call\n\n#### Opening:\n- Set a clear agenda around renewal objectives, business value, and non-price leverage points.\n\n#### Main Topics:\n1. **Business Value & Strategic Benefits:**\n   - Discuss how the renewal adds to the company’s overall strategy.\n2. **Risk Mitigation:**\n   - Frame current risk management strategies and how they can be improved.\n3. **Non-Price Levers:**\n   - Highlight additional support or resources that can help maintain continuity.\n\n#### Closing:\n- Summarize key agreements made during the call.\n- Set clear expectations for future interactions, including potential next steps for renewals or contract improvements.\n\n### 5. Risks and Red Lines\n\n#### Potential Issues:\n1. **Price Pressure:**\n   - Be prepared to offer a significant discount to keep the deal within budget.\n2. **Negotiation Theater:**\n   - Maintain focus on business value and risk transfer points, avoiding concessions that could undermine trust.\n\n#### Red Lines:\n- Do not open with price concessions unless you have established grounds for a substantial discount.\n- Ensure all key non-price leverage points are discussed before going into price negotiations to maintain momentum.\n\n### 6. Concrete Next Steps to Close\n\n1. **Preparation:**\n   - Prepare detailed notes on past conversations and potential objections.\n2. **Initial Call Recap:**\n   - Summarize the main points of agreement from your initial call, including any non-price leverages discussed.\n3. **Follow-Up:**\n   - Schedule a follow-up call to review key agreements made during the first conversation.\n\n#### Final Thoughts:\n- The procurement team is likely looking for leverage in negotiation theater, so focus on value and risk transfer opportunities that can be seen as positive contributions to their organization’s goals.\n- By setting clear expectations from the outset, you position yourself well to close a deal without compromising key non-price leverage points.",
+  "context": [
+    {
+      "source": "batna",
+      "title": "BATNA Framing",
+      "content": "Define your best alternative, renewal floor, and non-price levers before you negotiate. Strong negotiators separate what is desirable from what is required.",
+      "relevance": 1.0
+    },
+    {
+      "source": "anchoring",
+      "title": "Anchoring Strategy",
+      "content": "Set the commercial anchor around business value, risk transfer, or expanded scope. Do not open with concessions; open with a justified frame.",
+      "relevance": 0.67
+    },
+    {
+      "source": "stakeholder_mapping",
+      "title": "Stakeholder Mapping",
+      "content": "Map each stakeholder by motive: procurement wants leverage, champions want continuity, legal wants reduced risk, and executives want predictable outcomes.",
+      "relevance": 0.5
+    },
+    {
+      "source": "objection_handling",
+      "title": "Objection Handling",
+      "content": "Respond to price pressure by diagnosing the objection first. Affordability, value skepticism, competitive pressure, and negotiation theater require different replies.",
+      "relevance": 0.33
+    }
+  ],
+  "metadata": {
+    "model": "qwen2.5:1.5b",
+    "technique": "Strategy Playbook CAG"
+  },
+  "process_steps": [
+    {
+      "step": "playbook_retrieval",
+      "description": "Retrieved negotiation heuristics matching the commercial context"
+    },
+    {
+      "step": "talk_track_augmentation",
+      "description": "Augmented the prompt with BATNA, anchor, concession, and stakeholder guidance"
+    },
+    {
+      "step": "strategy_generation",
+      "description": "Generated a negotiation strategy and talk track"
+    }
+  ]
+}

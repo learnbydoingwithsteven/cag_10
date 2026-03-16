@@ -27,18 +27,16 @@ How CAG retrieves **security, performance, and style guidelines** from a curated
 
 ## Test Results ✅
 
-**Query**: _"Review this Python code: `def get_user(id): return db.execute("SELECT * FROM users WHERE id=" + id)`"_
+**Query**: _Review this Python code: def get_user(id): return db.execute("SELECT * FROM users WHERE id=" + id)_
 
 | Metric | Value |
 |---|---|
-| Response Length | 2,168 chars |
+| Status | PASSED |
+| Response Length | 2469 chars |
 | Context Chunks | 5 |
-| Sources Retrieved | `error_handling`, `smell_nesting`, `python_best`, `security_secrets`, `security_input` |
+| Sources Retrieved | `error_handling, smell_nesting, python_best, security_secrets, security_input` |
 | Avg Relevance | 0.71 |
-| Generation Time | 6,377ms |
-| Model | qwen2.5:1.5b (auto-selected) |
-
-The CAG correctly identified SQL injection risk and retrieved security + error handling guidelines.
+| Model | Auto-selected local model |
 
 ## API Documentation
 
@@ -51,3 +49,8 @@ The CAG correctly identified SQL injection risk and retrieved security + error h
 cd backend && py main.py    # Port 8003
 cd frontend && npm start    # Port 3003
 ```
+
+
+## Application Screenshot
+
+![Screenshot](./screenshot.png)

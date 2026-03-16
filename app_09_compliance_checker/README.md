@@ -24,17 +24,16 @@ How CAG can enforce **regulatory compliance rules** by augmenting the LLM with s
 
 ## Test Results ✅
 
-**Query**: _"Check if our data retention policy of keeping user logs for 10 years is GDPR compliant"_
+**Query**: _Check if our data retention policy of keeping user logs for 10 years is GDPR compliant_
 
 | Metric | Value |
 |---|---|
-| Response Length | 1,192 chars |
+| Status | PASSED |
+| Response Length | 2591 chars |
 | Context Chunks | 5 |
-| Sources Retrieved | `gdpr_art6`, `gdpr_art17`, `data_retention`, `indemnification`, `force_majeure` |
-| Avg Relevance | **0.84** |
-| Generation Time | 2,823ms (second fastest) |
-
-The CAG correctly retrieved GDPR articles and data retention rules, enabling a structured compliance assessment.
+| Sources Retrieved | `gdpr_art6, gdpr_art17, data_retention, indemnification, force_majeure` |
+| Avg Relevance | 0.84 |
+| Model | Auto-selected local model |
 
 ## API Documentation
 
@@ -45,3 +44,8 @@ The CAG correctly retrieved GDPR articles and data retention rules, enabling a s
 cd backend && py main.py    # Port 8009
 cd frontend && npm start    # Port 3009
 ```
+
+
+## Application Screenshot
+
+![Screenshot](./screenshot.png)
