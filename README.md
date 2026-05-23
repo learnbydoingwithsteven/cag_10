@@ -106,3 +106,228 @@ py update_readmes.py
 - Apps `03` through `25` are local-first CAG apps that use Ollama.
 - Most frontends are lightweight React + MUI dashboards.
 - The test and screenshot scripts are designed for Windows and local Ollama usage.
+
+---
+## 📦 Project Structure
+
+```text
+cag_10/
+├── APPS_VERIFICATION.md
+├── COMPLETE_IMPLEMENTATION_GUIDE.md
+├── PROJECT_SUMMARY.md
+├── QUICKSTART.md
+├── README.md
+├── TASK_STATUS.md
+├── WALKTHROUGH.md
+├── app_01_legal_analyzer/
+  ├── README.md
+  ├── assets/
+  ├── backend/
+  ├── frontend/
+  ├── project.meta.json
+├── app_02_medical_assistant/
+  ├── README.md
+  ├── backend/
+  ├── frontend/
+  ├── project.meta.json
+├── app_03_code_reviewer/
+  ├── README.md
+  ├── assets/
+  ├── backend/
+  ├── frontend/
+  ├── project.meta.json
+  ├── screenshot.png
+├── app_04_support_agent/
+  ├── README.md
+  ├── assets/
+  ├── backend/
+  ├── frontend/
+  ├── project.meta.json
+  ├── screenshot.png
+├── app_05_financial_analyzer/
+  ├── README.md
+  ├── assets/
+  ├── backend/
+  ├── frontend/
+  ├── project.meta.json
+  ├── screenshot.png
+├── app_06_paper_summarizer/
+  ├── README.md
+  ├── assets/
+  ├── backend/
+  ├── frontend/
+  ├── project.meta.json
+  ├── screenshot.png
+├── app_07_product_recommender/
+  ├── README.md
+  ├── assets/
+  ├── backend/
+  ├── frontend/
+  ├── project.meta.json
+  ├── screenshot.png
+├── app_08_educational_tutor/
+  ├── README.md
+  ├── assets/
+  ├── backend/
+  ├── frontend/
+  ├── project.meta.json
+├── app_09_compliance_checker/
+  ├── README.md
+  ├── assets/
+  ├── backend/
+  ├── frontend/
+  ├── project.meta.json
+  ├── screenshot.png
+├── app_10_fact_checker/
+  ├── README.md
+  ├── assets/
+  ├── backend/
+  ├── frontend/
+  ├── project.meta.json
+  ├── screenshot.png
+├── app_11_agentic_researcher/
+  ├── README.md
+  ├── backend/
+  ├── frontend/
+  ├── project.meta.json
+  ├── screenshot.png
+├── app_12_graph_rag/
+  ├── README.md
+  ├── backend/
+  ├── frontend/
+  ├── project.meta.json
+  ├── screenshot.png
+├── app_13_git_sync/
+  ├── README.md
+  ├── backend/
+  ├── frontend/
+  ├── project.meta.json
+├── app_14_prompt_tutor/
+  ├── README.md
+  ├── backend/
+  ├── frontend/
+  ├── project.meta.json
+├── app_15_multi_agent_debater/
+  ├── README.md
+  ├── backend/
+  ├── frontend/
+  ├── project.meta.json
+├── app_16_self_reflective_coder/
+  ├── README.md
+  ├── backend/
+  ├── frontend/
+  ├── project.meta.json
+  ├── screenshot.png
+├── app_17_tree_of_thoughts_solver/
+  ├── README.md
+  ├── backend/
+  ├── frontend/
+  ├── project.meta.json
+  ├── screenshot.png
+├── app_18_dynamic_few_shot_writer/
+  ├── README.md
+  ├── backend/
+  ├── frontend/
+  ├── project.meta.json
+  ├── screenshot.png
+├── app_19_temporal_rag_forecaster/
+  ├── README.md
+  ├── backend/
+  ├── frontend/
+  ├── project.meta.json
+  ├── screenshot.png
+├── app_20_constraint_planner/
+  ├── README.md
+  ├── backend/
+  ├── frontend/
+  ├── project.meta.json
+├── app_21_incident_commander/
+  ├── README.md
+  ├── backend/
+  ├── frontend/
+  ├── project.meta.json
+├── app_22_negotiation_coach/
+  ├── README.md
+  ├── backend/
+  ├── frontend/
+  ├── project.meta.json
+├── app_23_guardrail_redteam/
+  ├── README.md
+  ├── backend/
+  ├── frontend/
+  ├── project.meta.json
+├── app_24_workflow_orchestrator/
+  ├── README.md
+  ├── backend/
+  ├── frontend/
+  ├── project.meta.json
+├── app_25_scenario_simulator/
+  ├── README.md
+  ├── backend/
+  ├── frontend/
+  ├── project.meta.json
+  ├── screenshot.png
+├── doc_assets/
+  ├── project.meta.json
+  ├── unified_dashboard_main.png
+├── docker-compose.yml
+├── fix_elevation.py
+├── fix_rows.py
+├── generate_apps_15_to_19.py
+├── generate_remaining_apps.py
+├── project.meta.json
+├── projects.index.json
+├── run_local.py
+├── screenshot_all_apps.py
+├── shared/
+  ├── cag_engine/
+  ├── evaluation/
+  ├── project.meta.json
+  ├── requirements.txt
+├── start_all_apps.sh
+├── start_dashboard.bat
+├── summarize_results.py
+├── test_all_apps.py
+├── test_all_apps_comprehensive.py
+├── test_results/
+  ├── app03.json
+  ├── app_03_code_reviewer.json
+  ├── app_04_support_agent.json
+  ├── app_05_financial_analyzer.json
+  ├── app_06_paper_summarizer.json
+  ├── app_07_product_recommender.json
+  ├── app_08_educational_tutor.json
+  ├── app_09_compliance_checker.json
+  ├── app_10_fact_checker.json
+  ├── app_11_agentic_researcher.json
+  ├── app_12_graph_rag.json
+  ├── app_13_git_sync.json
+  ├── app_14_prompt_tutor.json
+  ├── app_15_multi_agent_debater.json
+  ├── app_16_self_reflective_coder.json
+  ├── app_17_tree_of_thoughts_solver.json
+  ├── app_18_dynamic_few_shot_writer.json
+  ├── app_19_temporal_rag_forecaster.json
+  ├── app_20_constraint_planner.json
+  ├── app_21_incident_commander.json
+  ├── app_22_negotiation_coach.json
+  ├── app_23_guardrail_redteam.json
+  ├── app_24_workflow_orchestrator.json
+  ├── app_25_scenario_simulator.json
+  ├── project.meta.json
+  ├── test_summary.json
+├── test_screenshot.py
+├── test_single_app.py
+├── unified_dashboard/
+  ├── README.md
+  ├── backend/
+  ├── frontend/
+  ├── project.meta.json
+├── update_15_to_19.py
+├── update_readmes.py
+├── update_ui_15_to_19.py
+```
+
+## 🛠️ Technology Stack
+
+- **Python 3**

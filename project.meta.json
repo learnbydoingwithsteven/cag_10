@@ -1,0 +1,53 @@
+﻿{
+    "$schema":  "../project.meta.schema.json",
+    "schemaVersion":  1,
+    "name":  "cag_10",
+    "title":  "CAG Apps Suite",
+    "kind":  "git-repository",
+    "status":  "unknown",
+    "category":  "workspace-folder",
+    "description":  "A modular application suite demonstrating advanced Context-Aware Generation (CAG) paradigms and knowledge-base search systems.",
+    "tags":  [
+                 "workspace-folder"
+             ],
+    "priority":  "unset",
+    "owner":  "",
+    "paths":  {
+                  "relative":  "cag_10",
+                  "absolute":  "F:\\learnbydoingwithsteven\\cag_10"
+              },
+    "repo":  {
+                 "hasGit":  true,
+                 "remote":  "https://github.com/learnbydoingwithsteven/cag_10.git"
+             },
+    "stack":  [
+                  "python"
+              ],
+    "entrypoints":  {
+                        "readme":  "README.md"
+                    },
+    "signals":  {
+                    "hasReadme":  true,
+                    "hasPackageJson":  false,
+                    "hasIndexHtml":  false,
+                    "hasViteConfig":  false,
+                    "hasNextConfig":  false,
+                    "hasPython":  true,
+                    "hasNotebooks":  false
+                },
+    "children":  {
+                     "count":  29,
+                     "immediateProjectSignalCount":  29
+                 },
+    "activity":  {
+                     "lastModifiedLocal":  "2026-05-11T22:40:30",
+                     "inferredActivity":  "hot"
+                 },
+    "notes":  "",
+    "metadata":  {
+                     "generated":  true,
+                     "generatedAt":  "2026-05-23T10:55:25Z",
+                     "generatedBy":  "tools/update_project_metadata.ps1",
+                     "confidence":  "inferred"
+                 }
+}
