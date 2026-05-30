@@ -1,0 +1,53 @@
+﻿{
+    "$schema":  "../../../../project.meta.schema.json",
+    "schemaVersion":  1,
+    "name":  "src",
+    "title":  "Src",
+    "kind":  "workspace-folder",
+    "status":  "unknown",
+    "category":  "workspace-folder",
+    "description":  "",
+    "tags":  [
+                 "workspace-folder"
+             ],
+    "priority":  "unset",
+    "owner":  "",
+    "paths":  {
+                  "relative":  "cag_10/app_21_incident_commander/frontend/src",
+                  "absolute":  "F:\\learnbydoingwithsteven\\cag_10\\app_21_incident_commander\\frontend\\src"
+              },
+    "repo":  {
+                 "hasGit":  false,
+                 "remote":  null
+             },
+    "stack":  [
+
+              ],
+    "entrypoints":  {
+
+                    },
+    "signals":  {
+                    "hasReadme":  false,
+                    "hasPackageJson":  false,
+                    "hasIndexHtml":  false,
+                    "hasViteConfig":  false,
+                    "hasNextConfig":  false,
+                    "hasPython":  false,
+                    "hasNotebooks":  false
+                },
+    "children":  {
+                     "count":  0,
+                     "immediateProjectSignalCount":  0
+                 },
+    "activity":  {
+                     "lastModifiedLocal":  "2026-03-13T21:39:25",
+                     "inferredActivity":  "recent"
+                 },
+    "notes":  "",
+    "metadata":  {
+                     "generated":  true,
+                     "generatedAt":  "2026-05-30T04:03:01Z",
+                     "generatedBy":  "tools/update_project_metadata.ps1",
+                     "confidence":  "inferred"
+                 }
+}

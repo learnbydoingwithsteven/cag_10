@@ -1,0 +1,53 @@
+﻿{
+    "$schema":  "../../../../project.meta.schema.json",
+    "schemaVersion":  1,
+    "name":  "public",
+    "title":  "Public",
+    "kind":  "project-folder",
+    "status":  "unknown",
+    "category":  "app-or-demo",
+    "description":  "",
+    "tags":  [
+                 "app-or-demo"
+             ],
+    "priority":  "unset",
+    "owner":  "",
+    "paths":  {
+                  "relative":  "cag_10/app_23_guardrail_redteam/frontend/public",
+                  "absolute":  "F:\\learnbydoingwithsteven\\cag_10\\app_23_guardrail_redteam\\frontend\\public"
+              },
+    "repo":  {
+                 "hasGit":  false,
+                 "remote":  null
+             },
+    "stack":  [
+                  "static-html"
+              ],
+    "entrypoints":  {
+                        "web":  "index.html"
+                    },
+    "signals":  {
+                    "hasReadme":  false,
+                    "hasPackageJson":  false,
+                    "hasIndexHtml":  true,
+                    "hasViteConfig":  false,
+                    "hasNextConfig":  false,
+                    "hasPython":  false,
+                    "hasNotebooks":  false
+                },
+    "children":  {
+                     "count":  0,
+                     "immediateProjectSignalCount":  0
+                 },
+    "activity":  {
+                     "lastModifiedLocal":  "2026-03-13T21:35:53",
+                     "inferredActivity":  "recent"
+                 },
+    "notes":  "",
+    "metadata":  {
+                     "generated":  true,
+                     "generatedAt":  "2026-05-30T04:03:01Z",
+                     "generatedBy":  "tools/update_project_metadata.ps1",
+                     "confidence":  "inferred"
+                 }
+}

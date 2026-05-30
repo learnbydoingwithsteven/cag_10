@@ -1,0 +1,495 @@
+﻿{
+    "schemaVersion":  1,
+    "generatedAt":  "2026-05-30T03:48:08Z",
+    "generatedBy":  "tools/update_project_metadata.ps1",
+    "workspace":  {
+                      "root":  "F:\\learnbydoingwithsteven",
+                      "scopeRoot":  "F:\\learnbydoingwithsteven\\cag_10",
+                      "scopeRelativePath":  "cag_10",
+                      "folderCount":  29
+                  },
+    "totals":  {
+                   "gitRepositories":  0,
+                   "projectFolders":  26,
+                   "workspaceFolders":  3,
+                   "archiveOrOutput":  0
+               },
+    "projects":  [
+                     {
+                         "name":  "app_01_legal_analyzer",
+                         "title":  "App 01: Legal Document Analyzer",
+                         "kind":  "project-folder",
+                         "status":  "unknown",
+                         "category":  "workspace-folder",
+                         "tags":  [
+                                      "workspace-folder",
+                                      "legal"
+                                  ],
+                         "relativePath":  "cag_10/app_01_legal_analyzer",
+                         "stack":  [
+
+                                   ],
+                         "childProjectSignals":  1,
+                         "inferredActivity":  "hot"
+                     },
+                     {
+                         "name":  "app_02_medical_assistant",
+                         "title":  "App 02: Medical Diagnosis Assistant",
+                         "kind":  "project-folder",
+                         "status":  "unknown",
+                         "category":  "workspace-folder",
+                         "tags":  [
+                                      "workspace-folder"
+                                  ],
+                         "relativePath":  "cag_10/app_02_medical_assistant",
+                         "stack":  [
+
+                                   ],
+                         "childProjectSignals":  1,
+                         "inferredActivity":  "hot"
+                     },
+                     {
+                         "name":  "app_03_code_reviewer",
+                         "title":  "App 03: Code Review Bot",
+                         "kind":  "project-folder",
+                         "status":  "unknown",
+                         "category":  "web-product",
+                         "tags":  [
+                                      "web-product",
+                                      "web"
+                                  ],
+                         "relativePath":  "cag_10/app_03_code_reviewer",
+                         "stack":  [
+
+                                   ],
+                         "childProjectSignals":  1,
+                         "inferredActivity":  "hot"
+                     },
+                     {
+                         "name":  "app_04_support_agent",
+                         "title":  "App 04: Customer Support Agent",
+                         "kind":  "project-folder",
+                         "status":  "unknown",
+                         "category":  "workspace-folder",
+                         "tags":  [
+                                      "workspace-folder",
+                                      "ai"
+                                  ],
+                         "relativePath":  "cag_10/app_04_support_agent",
+                         "stack":  [
+
+                                   ],
+                         "childProjectSignals":  1,
+                         "inferredActivity":  "hot"
+                     },
+                     {
+                         "name":  "app_05_financial_analyzer",
+                         "title":  "App 05: Financial Report Analyzer",
+                         "kind":  "project-folder",
+                         "status":  "unknown",
+                         "category":  "workspace-folder",
+                         "tags":  [
+                                      "workspace-folder"
+                                  ],
+                         "relativePath":  "cag_10/app_05_financial_analyzer",
+                         "stack":  [
+
+                                   ],
+                         "childProjectSignals":  1,
+                         "inferredActivity":  "hot"
+                     },
+                     {
+                         "name":  "app_06_paper_summarizer",
+                         "title":  "App 06: Research Paper Summarizer",
+                         "kind":  "project-folder",
+                         "status":  "unknown",
+                         "category":  "workspace-folder",
+                         "tags":  [
+                                      "workspace-folder",
+                                      "research"
+                                  ],
+                         "relativePath":  "cag_10/app_06_paper_summarizer",
+                         "stack":  [
+
+                                   ],
+                         "childProjectSignals":  1,
+                         "inferredActivity":  "hot"
+                     },
+                     {
+                         "name":  "app_07_product_recommender",
+                         "title":  "App 07: Product Recommender",
+                         "kind":  "project-folder",
+                         "status":  "unknown",
+                         "category":  "workspace-folder",
+                         "tags":  [
+                                      "workspace-folder"
+                                  ],
+                         "relativePath":  "cag_10/app_07_product_recommender",
+                         "stack":  [
+
+                                   ],
+                         "childProjectSignals":  1,
+                         "inferredActivity":  "hot"
+                     },
+                     {
+                         "name":  "app_08_educational_tutor",
+                         "title":  "App 08: Educational Tutor",
+                         "kind":  "project-folder",
+                         "status":  "unknown",
+                         "category":  "workspace-folder",
+                         "tags":  [
+                                      "workspace-folder"
+                                  ],
+                         "relativePath":  "cag_10/app_08_educational_tutor",
+                         "stack":  [
+
+                                   ],
+                         "childProjectSignals":  1,
+                         "inferredActivity":  "hot"
+                     },
+                     {
+                         "name":  "app_09_compliance_checker",
+                         "title":  "App 09: Compliance Checker",
+                         "kind":  "project-folder",
+                         "status":  "unknown",
+                         "category":  "workspace-folder",
+                         "tags":  [
+                                      "workspace-folder"
+                                  ],
+                         "relativePath":  "cag_10/app_09_compliance_checker",
+                         "stack":  [
+
+                                   ],
+                         "childProjectSignals":  1,
+                         "inferredActivity":  "hot"
+                     },
+                     {
+                         "name":  "app_10_fact_checker",
+                         "title":  "App 10: Fact Checker",
+                         "kind":  "project-folder",
+                         "status":  "unknown",
+                         "category":  "workspace-folder",
+                         "tags":  [
+                                      "workspace-folder"
+                                  ],
+                         "relativePath":  "cag_10/app_10_fact_checker",
+                         "stack":  [
+
+                                   ],
+                         "childProjectSignals":  1,
+                         "inferredActivity":  "hot"
+                     },
+                     {
+                         "name":  "app_11_agentic_researcher",
+                         "title":  "App 11: Agentic Research Assistant",
+                         "kind":  "project-folder",
+                         "status":  "unknown",
+                         "category":  "learning-lab",
+                         "tags":  [
+                                      "learning-lab",
+                                      "ai",
+                                      "research"
+                                  ],
+                         "relativePath":  "cag_10/app_11_agentic_researcher",
+                         "stack":  [
+
+                                   ],
+                         "childProjectSignals":  1,
+                         "inferredActivity":  "hot"
+                     },
+                     {
+                         "name":  "app_12_graph_rag",
+                         "title":  "App 12: GraphRAG Explorer",
+                         "kind":  "project-folder",
+                         "status":  "unknown",
+                         "category":  "workspace-folder",
+                         "tags":  [
+                                      "workspace-folder",
+                                      "ai"
+                                  ],
+                         "relativePath":  "cag_10/app_12_graph_rag",
+                         "stack":  [
+
+                                   ],
+                         "childProjectSignals":  1,
+                         "inferredActivity":  "hot"
+                     },
+                     {
+                         "name":  "app_13_git_sync",
+                         "title":  "App 13: Git Sync Assistant",
+                         "kind":  "project-folder",
+                         "status":  "unknown",
+                         "category":  "workspace-folder",
+                         "tags":  [
+                                      "workspace-folder"
+                                  ],
+                         "relativePath":  "cag_10/app_13_git_sync",
+                         "stack":  [
+
+                                   ],
+                         "childProjectSignals":  1,
+                         "inferredActivity":  "hot"
+                     },
+                     {
+                         "name":  "app_14_prompt_tutor",
+                         "title":  "App 14: Prompt Engineering Tutor",
+                         "kind":  "project-folder",
+                         "status":  "unknown",
+                         "category":  "learning-lab",
+                         "tags":  [
+                                      "learning-lab",
+                                      "course"
+                                  ],
+                         "relativePath":  "cag_10/app_14_prompt_tutor",
+                         "stack":  [
+
+                                   ],
+                         "childProjectSignals":  1,
+                         "inferredActivity":  "hot"
+                     },
+                     {
+                         "name":  "app_15_multi_agent_debater",
+                         "title":  "App 15: Multi Agent Debater",
+                         "kind":  "project-folder",
+                         "status":  "unknown",
+                         "category":  "workspace-folder",
+                         "tags":  [
+                                      "workspace-folder",
+                                      "ai"
+                                  ],
+                         "relativePath":  "cag_10/app_15_multi_agent_debater",
+                         "stack":  [
+
+                                   ],
+                         "childProjectSignals":  1,
+                         "inferredActivity":  "hot"
+                     },
+                     {
+                         "name":  "app_16_self_reflective_coder",
+                         "title":  "App 16: Self Reflective Coder",
+                         "kind":  "project-folder",
+                         "status":  "unknown",
+                         "category":  "workspace-folder",
+                         "tags":  [
+                                      "workspace-folder"
+                                  ],
+                         "relativePath":  "cag_10/app_16_self_reflective_coder",
+                         "stack":  [
+
+                                   ],
+                         "childProjectSignals":  1,
+                         "inferredActivity":  "hot"
+                     },
+                     {
+                         "name":  "app_17_tree_of_thoughts_solver",
+                         "title":  "App 17: Tree Of Thoughts Solver",
+                         "kind":  "project-folder",
+                         "status":  "unknown",
+                         "category":  "workspace-folder",
+                         "tags":  [
+                                      "workspace-folder"
+                                  ],
+                         "relativePath":  "cag_10/app_17_tree_of_thoughts_solver",
+                         "stack":  [
+
+                                   ],
+                         "childProjectSignals":  1,
+                         "inferredActivity":  "hot"
+                     },
+                     {
+                         "name":  "app_18_dynamic_few_shot_writer",
+                         "title":  "App 18: Dynamic Few Shot Writer",
+                         "kind":  "project-folder",
+                         "status":  "unknown",
+                         "category":  "workspace-folder",
+                         "tags":  [
+                                      "workspace-folder"
+                                  ],
+                         "relativePath":  "cag_10/app_18_dynamic_few_shot_writer",
+                         "stack":  [
+
+                                   ],
+                         "childProjectSignals":  1,
+                         "inferredActivity":  "hot"
+                     },
+                     {
+                         "name":  "app_19_temporal_rag_forecaster",
+                         "title":  "App 19: Temporal Rag Forecaster",
+                         "kind":  "project-folder",
+                         "status":  "unknown",
+                         "category":  "learning-lab",
+                         "tags":  [
+                                      "learning-lab",
+                                      "ai"
+                                  ],
+                         "relativePath":  "cag_10/app_19_temporal_rag_forecaster",
+                         "stack":  [
+
+                                   ],
+                         "childProjectSignals":  1,
+                         "inferredActivity":  "hot"
+                     },
+                     {
+                         "name":  "app_20_constraint_planner",
+                         "title":  "App 20: Constraint-Aware Launch Planner",
+                         "kind":  "project-folder",
+                         "status":  "unknown",
+                         "category":  "workspace-folder",
+                         "tags":  [
+                                      "workspace-folder",
+                                      "ai"
+                                  ],
+                         "relativePath":  "cag_10/app_20_constraint_planner",
+                         "stack":  [
+
+                                   ],
+                         "childProjectSignals":  1,
+                         "inferredActivity":  "hot"
+                     },
+                     {
+                         "name":  "app_21_incident_commander",
+                         "title":  "App 21: Incident Command Copilot",
+                         "kind":  "project-folder",
+                         "status":  "unknown",
+                         "category":  "workspace-folder",
+                         "tags":  [
+                                      "workspace-folder"
+                                  ],
+                         "relativePath":  "cag_10/app_21_incident_commander",
+                         "stack":  [
+
+                                   ],
+                         "childProjectSignals":  1,
+                         "inferredActivity":  "hot"
+                     },
+                     {
+                         "name":  "app_22_negotiation_coach",
+                         "title":  "App 22: Enterprise Negotiation Coach",
+                         "kind":  "project-folder",
+                         "status":  "unknown",
+                         "category":  "workspace-folder",
+                         "tags":  [
+                                      "workspace-folder"
+                                  ],
+                         "relativePath":  "cag_10/app_22_negotiation_coach",
+                         "stack":  [
+
+                                   ],
+                         "childProjectSignals":  1,
+                         "inferredActivity":  "hot"
+                     },
+                     {
+                         "name":  "app_23_guardrail_redteam",
+                         "title":  "App 23: LLM Guardrail Red-Team Lab",
+                         "kind":  "project-folder",
+                         "status":  "unknown",
+                         "category":  "workspace-folder",
+                         "tags":  [
+                                      "workspace-folder",
+                                      "ai"
+                                  ],
+                         "relativePath":  "cag_10/app_23_guardrail_redteam",
+                         "stack":  [
+
+                                   ],
+                         "childProjectSignals":  1,
+                         "inferredActivity":  "hot"
+                     },
+                     {
+                         "name":  "app_24_workflow_orchestrator",
+                         "title":  "App 24: Workflow Orchestration Designer",
+                         "kind":  "project-folder",
+                         "status":  "unknown",
+                         "category":  "workspace-folder",
+                         "tags":  [
+                                      "workspace-folder"
+                                  ],
+                         "relativePath":  "cag_10/app_24_workflow_orchestrator",
+                         "stack":  [
+
+                                   ],
+                         "childProjectSignals":  1,
+                         "inferredActivity":  "hot"
+                     },
+                     {
+                         "name":  "app_25_scenario_simulator",
+                         "title":  "App 25: Executive Scenario Simulator",
+                         "kind":  "project-folder",
+                         "status":  "unknown",
+                         "category":  "workspace-folder",
+                         "tags":  [
+                                      "workspace-folder"
+                                  ],
+                         "relativePath":  "cag_10/app_25_scenario_simulator",
+                         "stack":  [
+
+                                   ],
+                         "childProjectSignals":  1,
+                         "inferredActivity":  "hot"
+                     },
+                     {
+                         "name":  "doc_assets",
+                         "title":  "Doc Assets",
+                         "kind":  "workspace-folder",
+                         "status":  "unknown",
+                         "category":  "workspace-folder",
+                         "tags":  [
+                                      "workspace-folder"
+                                  ],
+                         "relativePath":  "cag_10/doc_assets",
+                         "stack":  [
+
+                                   ],
+                         "childProjectSignals":  0,
+                         "inferredActivity":  "hot"
+                     },
+                     {
+                         "name":  "shared",
+                         "title":  "Shared",
+                         "kind":  "workspace-folder",
+                         "status":  "unknown",
+                         "category":  "workspace-folder",
+                         "tags":  [
+                                      "workspace-folder"
+                                  ],
+                         "relativePath":  "cag_10/shared",
+                         "stack":  [
+                                       "python"
+                                   ],
+                         "childProjectSignals":  0,
+                         "inferredActivity":  "hot"
+                     },
+                     {
+                         "name":  "test_results",
+                         "title":  "Test Results",
+                         "kind":  "workspace-folder",
+                         "status":  "unknown",
+                         "category":  "workspace-folder",
+                         "tags":  [
+                                      "workspace-folder"
+                                  ],
+                         "relativePath":  "cag_10/test_results",
+                         "stack":  [
+
+                                   ],
+                         "childProjectSignals":  0,
+                         "inferredActivity":  "hot"
+                     },
+                     {
+                         "name":  "unified_dashboard",
+                         "title":  "Unified Dashboard",
+                         "kind":  "project-folder",
+                         "status":  "unknown",
+                         "category":  "workspace-folder",
+                         "tags":  [
+                                      "workspace-folder"
+                                  ],
+                         "relativePath":  "cag_10/unified_dashboard",
+                         "stack":  [
+
+                                   ],
+                         "childProjectSignals":  1,
+                         "inferredActivity":  "hot"
+                     }
+                 ]
+}

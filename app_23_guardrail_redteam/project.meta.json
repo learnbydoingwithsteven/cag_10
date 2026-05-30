@@ -1,27 +1,28 @@
 ﻿{
-    "$schema":  "../project.meta.schema.json",
+    "$schema":  "../../project.meta.schema.json",
     "schemaVersion":  1,
-    "name":  "cag_10",
-    "title":  "CAG Apps Suite",
-    "kind":  "git-repository",
+    "name":  "app_23_guardrail_redteam",
+    "title":  "App 23: LLM Guardrail Red-Team Lab",
+    "kind":  "project-folder",
     "status":  "unknown",
     "category":  "workspace-folder",
-    "description":  "A modular application suite demonstrating advanced Context-Aware Generation (CAG) paradigms and knowledge-base search systems.",
+    "description":  "",
     "tags":  [
-                 "workspace-folder"
+                 "workspace-folder",
+                 "ai"
              ],
     "priority":  "unset",
     "owner":  "",
     "paths":  {
-                  "relative":  "cag_10",
-                  "absolute":  "F:\\learnbydoingwithsteven\\cag_10"
+                  "relative":  "cag_10/app_23_guardrail_redteam",
+                  "absolute":  "F:\\learnbydoingwithsteven\\cag_10\\app_23_guardrail_redteam"
               },
     "repo":  {
-                 "hasGit":  true,
-                 "remote":  "https://github.com/learnbydoingwithsteven/cag_10.git"
+                 "hasGit":  false,
+                 "remote":  null
              },
     "stack":  [
-                  "python"
+
               ],
     "entrypoints":  {
                         "readme":  "README.md"
@@ -32,21 +33,21 @@
                     "hasIndexHtml":  false,
                     "hasViteConfig":  false,
                     "hasNextConfig":  false,
-                    "hasPython":  true,
+                    "hasPython":  false,
                     "hasNotebooks":  false
                 },
     "children":  {
-                     "count":  29,
-                     "immediateProjectSignalCount":  29
+                     "count":  2,
+                     "immediateProjectSignalCount":  1
                  },
     "activity":  {
-                     "lastModifiedLocal":  "2026-05-11T22:40:30",
+                     "lastModifiedLocal":  "2026-05-11T22:40:29",
                      "inferredActivity":  "hot"
                  },
     "notes":  "",
     "metadata":  {
                      "generated":  true,
-                     "generatedAt":  "2026-05-30T03:48:38Z",
+                     "generatedAt":  "2026-05-30T03:48:08Z",
                      "generatedBy":  "tools/update_project_metadata.ps1",
                      "confidence":  "inferred"
                  }

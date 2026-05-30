@@ -1,0 +1,68 @@
+﻿{
+    "schemaVersion":  1,
+    "generatedAt":  "2026-05-30T04:03:00Z",
+    "generatedBy":  "tools/update_project_metadata.ps1",
+    "workspace":  {
+                      "root":  "F:\\learnbydoingwithsteven",
+                      "scopeRoot":  "F:\\learnbydoingwithsteven\\cag_10\\app_08_educational_tutor",
+                      "scopeRelativePath":  "cag_10/app_08_educational_tutor",
+                      "folderCount":  3
+                  },
+    "totals":  {
+                   "gitRepositories":  0,
+                   "projectFolders":  1,
+                   "workspaceFolders":  2,
+                   "archiveOrOutput":  0
+               },
+    "projects":  [
+                     {
+                         "name":  "assets",
+                         "title":  "Assets",
+                         "kind":  "workspace-folder",
+                         "status":  "unknown",
+                         "category":  "workspace-folder",
+                         "tags":  [
+                                      "workspace-folder"
+                                  ],
+                         "relativePath":  "cag_10/app_08_educational_tutor/assets",
+                         "stack":  [
+
+                                   ],
+                         "childProjectSignals":  0,
+                         "inferredActivity":  "recent"
+                     },
+                     {
+                         "name":  "backend",
+                         "title":  "Backend",
+                         "kind":  "workspace-folder",
+                         "status":  "unknown",
+                         "category":  "workspace-folder",
+                         "tags":  [
+                                      "workspace-folder"
+                                  ],
+                         "relativePath":  "cag_10/app_08_educational_tutor/backend",
+                         "stack":  [
+                                       "python"
+                                   ],
+                         "childProjectSignals":  0,
+                         "inferredActivity":  "recent"
+                     },
+                     {
+                         "name":  "frontend",
+                         "title":  "Frontend",
+                         "kind":  "project-folder",
+                         "status":  "unknown",
+                         "category":  "app-or-demo",
+                         "tags":  [
+                                      "app-or-demo",
+                                      "web"
+                                  ],
+                         "relativePath":  "cag_10/app_08_educational_tutor/frontend",
+                         "stack":  [
+                                       "node"
+                                   ],
+                         "childProjectSignals":  1,
+                         "inferredActivity":  "recent"
+                     }
+                 ]
+}

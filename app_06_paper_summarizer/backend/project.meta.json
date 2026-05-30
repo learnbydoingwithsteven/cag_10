@@ -1,33 +1,33 @@
 ﻿{
-    "$schema":  "../project.meta.schema.json",
+    "$schema":  "../../../project.meta.schema.json",
     "schemaVersion":  1,
-    "name":  "cag_10",
-    "title":  "CAG Apps Suite",
-    "kind":  "git-repository",
+    "name":  "backend",
+    "title":  "Backend",
+    "kind":  "workspace-folder",
     "status":  "unknown",
     "category":  "workspace-folder",
-    "description":  "A modular application suite demonstrating advanced Context-Aware Generation (CAG) paradigms and knowledge-base search systems.",
+    "description":  "",
     "tags":  [
                  "workspace-folder"
              ],
     "priority":  "unset",
     "owner":  "",
     "paths":  {
-                  "relative":  "cag_10",
-                  "absolute":  "F:\\learnbydoingwithsteven\\cag_10"
+                  "relative":  "cag_10/app_06_paper_summarizer/backend",
+                  "absolute":  "F:\\learnbydoingwithsteven\\cag_10\\app_06_paper_summarizer\\backend"
               },
     "repo":  {
-                 "hasGit":  true,
-                 "remote":  "https://github.com/learnbydoingwithsteven/cag_10.git"
+                 "hasGit":  false,
+                 "remote":  null
              },
     "stack":  [
                   "python"
               ],
     "entrypoints":  {
-                        "readme":  "README.md"
+
                     },
     "signals":  {
-                    "hasReadme":  true,
+                    "hasReadme":  false,
                     "hasPackageJson":  false,
                     "hasIndexHtml":  false,
                     "hasViteConfig":  false,
@@ -36,17 +36,17 @@
                     "hasNotebooks":  false
                 },
     "children":  {
-                     "count":  29,
-                     "immediateProjectSignalCount":  29
+                     "count":  1,
+                     "immediateProjectSignalCount":  0
                  },
     "activity":  {
-                     "lastModifiedLocal":  "2026-05-11T22:40:30",
-                     "inferredActivity":  "hot"
+                     "lastModifiedLocal":  "2026-02-18T11:55:20",
+                     "inferredActivity":  "recent"
                  },
     "notes":  "",
     "metadata":  {
                      "generated":  true,
-                     "generatedAt":  "2026-05-30T03:48:38Z",
+                     "generatedAt":  "2026-05-30T04:03:00Z",
                      "generatedBy":  "tools/update_project_metadata.ps1",
                      "confidence":  "inferred"
                  }

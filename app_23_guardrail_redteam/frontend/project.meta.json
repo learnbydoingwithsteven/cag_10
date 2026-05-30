@@ -1,0 +1,54 @@
+﻿{
+    "$schema":  "../../../project.meta.schema.json",
+    "schemaVersion":  1,
+    "name":  "frontend",
+    "title":  "Frontend",
+    "kind":  "project-folder",
+    "status":  "unknown",
+    "category":  "app-or-demo",
+    "description":  "",
+    "tags":  [
+                 "app-or-demo",
+                 "web"
+             ],
+    "priority":  "unset",
+    "owner":  "",
+    "paths":  {
+                  "relative":  "cag_10/app_23_guardrail_redteam/frontend",
+                  "absolute":  "F:\\learnbydoingwithsteven\\cag_10\\app_23_guardrail_redteam\\frontend"
+              },
+    "repo":  {
+                 "hasGit":  false,
+                 "remote":  null
+             },
+    "stack":  [
+                  "node"
+              ],
+    "entrypoints":  {
+                        "package":  "package.json"
+                    },
+    "signals":  {
+                    "hasReadme":  false,
+                    "hasPackageJson":  true,
+                    "hasIndexHtml":  false,
+                    "hasViteConfig":  false,
+                    "hasNextConfig":  false,
+                    "hasPython":  false,
+                    "hasNotebooks":  false
+                },
+    "children":  {
+                     "count":  3,
+                     "immediateProjectSignalCount":  1
+                 },
+    "activity":  {
+                     "lastModifiedLocal":  "2026-03-13T22:19:28",
+                     "inferredActivity":  "recent"
+                 },
+    "notes":  "",
+    "metadata":  {
+                     "generated":  true,
+                     "generatedAt":  "2026-05-30T04:03:01Z",
+                     "generatedBy":  "tools/update_project_metadata.ps1",
+                     "confidence":  "inferred"
+                 }
+}
